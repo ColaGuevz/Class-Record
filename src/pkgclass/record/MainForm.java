@@ -1,5 +1,6 @@
 package pkgclass.record;
 
+import java.awt.*;
 import javax.swing.*;
 import java.io.*;
 import java.util.logging.*;
@@ -43,6 +44,12 @@ public class MainForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Parent = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        table1 = new pkgclass.record.Table();
+        searchText = new pkgclass.record.SearchText();
+        myButton1 = new com.mycompany.classrecord.MyButton();
+        myButton2 = new com.mycompany.classrecord.MyButton();
+        jLabel8 = new javax.swing.JLabel();
         AddClassPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ClassNameTextBox = new javax.swing.JTextField();
@@ -120,6 +127,59 @@ public class MainForm extends javax.swing.JFrame {
 
         HomePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        table1.setBackground(new java.awt.Color(255, 255, 255));
+        table1.setForeground(new java.awt.Color(102, 102, 102));
+        table1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Student Name", "Grade", "No. Of Absents"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        table1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jScrollPane2.setViewportView(table1);
+
+        HomePanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 460));
+
+        searchText.setBackground(new java.awt.Color(153, 153, 153));
+        searchText.setForeground(new java.awt.Color(0, 0, 0));
+        searchText.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        HomePanel.add(searchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 220, 40));
+
+        myButton1.setForeground(new java.awt.Color(0, 0, 0));
+        myButton1.setText("Search");
+        myButton1.setBorderColor(new java.awt.Color(153, 153, 153));
+        myButton1.setBorderPainted(false);
+        myButton1.setColorClick(new java.awt.Color(153, 153, 153));
+        myButton1.setColorOver(new java.awt.Color(255, 255, 255));
+        myButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        myButton1.setRadius(30);
+        HomePanel.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 80, 40));
+
+        myButton2.setForeground(new java.awt.Color(0, 0, 0));
+        myButton2.setText("Add Student");
+        myButton2.setBorderColor(new java.awt.Color(153, 153, 153));
+        myButton2.setBorderPainted(false);
+        myButton2.setColorClick(new java.awt.Color(153, 153, 153));
+        myButton2.setColorOver(new java.awt.Color(255, 255, 255));
+        myButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        myButton2.setRadius(30);
+        HomePanel.add(myButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 130, 40));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-add-45.png"))); // NOI18N
+        jLabel8.setToolTipText("");
+        HomePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 40, 40));
+
         Parent.add(HomePanel, "card2");
 
         AddClassPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -181,11 +241,11 @@ public class MainForm extends javax.swing.JFrame {
 
         Parent.add(AddClassPanel, "card3");
 
-        jPanel1.add(Parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 630, 620));
+        jPanel1.add(Parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 630, 600));
 
-        jPanel4.setBackground(java.awt.SystemColor.activeCaption);
+        jPanel4.setBackground(new java.awt.Color(153, 204, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 70));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 90));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 690));
 
@@ -299,11 +359,17 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JList<String> list;
+    private com.mycompany.classrecord.MyButton myButton1;
+    private com.mycompany.classrecord.MyButton myButton2;
+    private pkgclass.record.SearchText searchText;
+    private pkgclass.record.Table table1;
     // End of variables declaration//GEN-END:variables
 }
