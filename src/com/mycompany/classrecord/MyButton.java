@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
-public class MyButton extends JButton {
+public final class MyButton extends JButton {
 
     public boolean isOver() {
         return over;
@@ -22,7 +22,7 @@ public class MyButton extends JButton {
         return color;
     }
 
-    public void setColor(Color color) {
+    public final void setColor(Color color) {
         this.color = color;
         setBackground(color);
     }
@@ -59,40 +59,49 @@ public class MyButton extends JButton {
         this.radius = radius;
     }
 
-    public MyButton() {
+    public MyButton() 
+    {
         //  Init Color
-
-        setColor(Color.WHITE);
-        colorOver = new Color(179, 250, 160);
-        colorClick = new Color(152, 184, 144);
-        borderColor = new Color(30, 136, 56);
+        setColor(new Color(255,255,255));
+        setBackground(new Color(9,166,254));
+        setForeground(Color.black);
+        colorOver = new Color(255,255,255);
+        colorClick = new Color(153,153,153);
+        borderColor = new Color(153,153,153);
         setContentAreaFilled(false);
         //  Add event mouse
-        addMouseListener(new MouseAdapter() {
+        addMouseListener(new MouseAdapter() 
+        {
             @Override
-            public void mouseEntered(MouseEvent me) {
-                setBackground(colorOver);
+            public void mouseEntered(MouseEvent me) 
+            {
+                setBackground(new Color(255,255,255));
                 over = true;
             }
 
             @Override
-            public void mouseExited(MouseEvent me) {
-                setBackground(color);
+            public void mouseExited(MouseEvent me) 
+            {
+                setBackground(new Color(9,166,254));
                 over = false;
-
             }
 
             @Override
-            public void mousePressed(MouseEvent me) {
-                setBackground(colorClick);
+            public void mousePressed(MouseEvent me) 
+            {
+                setBackground(new Color(153,153,153));
             }
 
             @Override
-            public void mouseReleased(MouseEvent me) {
-                if (over) {
-                    setBackground(colorOver);
-                } else {
-                    setBackground(color);
+            public void mouseReleased(MouseEvent me) 
+            {
+                if (over) 
+                {
+                    setBackground(new Color(255,255,255));
+                } 
+                else 
+                {
+                    setBackground(new Color(9,166,254));
                 }
             }
         });
