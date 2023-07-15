@@ -13,7 +13,7 @@ public class Table extends JTable {
     {
         setShowHorizontalLines(true);
         setGridColor(new Color(230, 230, 230));
-        getTableHeader().setReorderingAllowed(false);
+        getTableHeader().setReorderingAllowed(true);
         getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() 
         {
             @Override

@@ -7,6 +7,9 @@ import java.util.*;
 import javax.swing.border.*;
 import com.mycompany.classrecord.MyButton;
 import java.awt.event.*;
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 public class MainForm extends javax.swing.JFrame {
 
@@ -14,43 +17,29 @@ public class MainForm extends javax.swing.JFrame {
     String homeDir = System.getProperty("user.home");       //getting the home directory of the user's laptop
     
     ArrayList <String> ListOfFile = new ArrayList<>();
+    boolean mouseClicked = false;
 
     public MainForm() 
     {
         initComponents();
         TeachersNameLabel.setText("Teacher " + name);
-        
-        ListOfFile = getListOfFiles();
-        
-        MyButton textButton;
-        Border border = new EmptyBorder(5,10,5,10);
-        for(String str: ListOfFile)
+        StudentTable.setGridColor(Color.BLACK);
+        theader();
+
+        ListPanel.setLayout(new GridLayout(0,1));
+        ListPanel.setBorder(new EmptyBorder(0, 0, 0, 0));
+        ScrollPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+        ScrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() 
         {
-            textButton = new MyButton();
-            textButton.setForeground(Color.black);
-            textButton.setBackground(new Color(9,166,254));
-            textButton.setBorder(border);
-            textButton.setPreferredSize(new Dimension(180, 60));
-            textButton.setOpaque(true);
-            textButton.setFont(new Font("Verdana", 1, 16));
-            textButton.setRadius(30);
-            textButton.setText(str);
-            ListPanel.add(textButton);
-            ListPanel.add(Box.createVerticalStrut(10));
-            
-            textButton.addMouseListener(new MouseAdapter() 
+            @Override
+            protected void configureScrollBarColors() 
             {
-                @Override
-                public void mouseClicked(MouseEvent e) 
-                {
-                    HeaderLabel.setText(str);
-                    Parent.removeAll();
-                    Parent.add(HomePanel);
-                    Parent.repaint();
-                    Parent.revalidate();
-                }
-            });
-        }
+                // Set the color of the scroll bar track and thumb to match the parent container
+                this.thumbColor = ScrollPane.getBackground();
+                this.trackColor = ScrollPane.getBackground();
+            }
+        });
+        InitializeSidePanel();
     }
 
     @SuppressWarnings("unchecked")
@@ -68,21 +57,25 @@ public class MainForm extends javax.swing.JFrame {
         AddClassButton = new com.mycompany.classrecord.MyButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        ScrollPane = new javax.swing.JScrollPane();
         ListPanel = new javax.swing.JPanel();
         Parent = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        table1 = new pkgclass.record.Table();
         searchText = new pkgclass.record.SearchText();
         myButton1 = new com.mycompany.classrecord.MyButton();
-        myButton2 = new com.mycompany.classrecord.MyButton();
+        AddStudentButton = new com.mycompany.classrecord.MyButton();
         jLabel8 = new javax.swing.JLabel();
+        SaveStudInfoButton = new com.mycompany.classrecord.MyButton();
+        DeleteClassButton = new com.mycompany.classrecord.MyButton();
+        DeleteStudentButton = new com.mycompany.classrecord.MyButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        StudentTable = new javax.swing.JTable();
         AddClassPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ClassNameTextBox = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         ClassCodeTextBox = new javax.swing.JTextField();
-        SaveButton = new com.mycompany.classrecord.MyButton();
+        SaveClassInfoButton = new com.mycompany.classrecord.MyButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ClassInstructorTextBox = new javax.swing.JTextField();
@@ -95,13 +88,11 @@ public class MainForm extends javax.swing.JFrame {
         StudentFNameTextBox = new javax.swing.JTextField();
         StudentGradeTextBox = new javax.swing.JTextField();
         StudentAbsentTextBox = new javax.swing.JTextField();
-        SaveButton1 = new com.mycompany.classrecord.MyButton();
+        AddButton = new com.mycompany.classrecord.MyButton();
         StudentLNameTextBox = new javax.swing.JTextField();
         StudentMInitialTextBox = new javax.swing.JTextField();
-        StudentSexTextBox = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
         HeaderLabel = new javax.swing.JLabel();
@@ -132,10 +123,7 @@ public class MainForm extends javax.swing.JFrame {
         TeachersNameLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         SidebarPanel.add(TeachersNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 30));
 
-        AddClassButton.setBackground(new java.awt.Color(9, 166, 254));
-        AddClassButton.setForeground(new java.awt.Color(0, 0, 0));
         AddClassButton.setText("Add class");
-        AddClassButton.setBorderColor(new java.awt.Color(0, 0, 0));
         AddClassButton.setBorderPainted(false);
         AddClassButton.setColor(new java.awt.Color(9, 166, 254));
         AddClassButton.setColorClick(java.awt.SystemColor.activeCaption);
@@ -147,7 +135,7 @@ public class MainForm extends javax.swing.JFrame {
                 AddClassButtonActionPerformed(evt);
             }
         });
-        SidebarPanel.add(AddClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 130, 40));
+        SidebarPanel.add(AddClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,8 +145,14 @@ public class MainForm extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-logout-50 (1).png"))); // NOI18N
         SidebarPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 30, -1));
 
-        ListPanel.setBackground(new java.awt.Color(204, 204, 204));
-        SidebarPanel.add(ListPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, 300));
+        ScrollPane.setBackground(new java.awt.Color(230, 232, 240));
+        ScrollPane.setForeground(new java.awt.Color(230, 232, 240));
+
+        ListPanel.setBackground(new java.awt.Color(230, 232, 240));
+        ListPanel.setLayout(new javax.swing.BoxLayout(ListPanel, javax.swing.BoxLayout.LINE_AXIS));
+        ScrollPane.setViewportView(ListPanel);
+
+        SidebarPanel.add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 170, 300));
 
         jPanel1.add(SidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
@@ -168,64 +162,87 @@ public class MainForm extends javax.swing.JFrame {
         HomePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        table1.setBackground(new java.awt.Color(255, 255, 255));
-        table1.setForeground(new java.awt.Color(102, 102, 102));
-        table1.setModel(new javax.swing.table.DefaultTableModel(
+        searchText.setBackground(new java.awt.Color(153, 153, 153));
+        searchText.setForeground(new java.awt.Color(0, 0, 0));
+        searchText.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        HomePanel.add(searchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 220, 40));
+
+        myButton1.setText("Search");
+        myButton1.setBorderPainted(false);
+        myButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        myButton1.setRadius(30);
+        HomePanel.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 80, 40));
+
+        AddStudentButton.setText("Add Student");
+        AddStudentButton.setBorderPainted(false);
+        AddStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        AddStudentButton.setRadius(30);
+        AddStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddStudentButtonActionPerformed(evt);
+            }
+        });
+        HomePanel.add(AddStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 150, 40));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-add-45.png"))); // NOI18N
+        jLabel8.setToolTipText("");
+        HomePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 40, 40));
+
+        SaveStudInfoButton.setText("Save");
+        SaveStudInfoButton.setBorderPainted(false);
+        SaveStudInfoButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        SaveStudInfoButton.setRadius(30);
+        SaveStudInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveStudInfoButtonActionPerformed(evt);
+            }
+        });
+        HomePanel.add(SaveStudInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 80, 40));
+
+        DeleteClassButton.setText("Delete Class");
+        DeleteClassButton.setBorderPainted(false);
+        DeleteClassButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        DeleteClassButton.setRadius(30);
+        HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 130, 40));
+
+        DeleteStudentButton.setText("Remove Student");
+        DeleteStudentButton.setBorderPainted(false);
+        DeleteStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        DeleteStudentButton.setRadius(30);
+        DeleteStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteStudentButtonActionPerformed(evt);
+            }
+        });
+        HomePanel.add(DeleteStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 510, -1, 40));
+
+        StudentTable.setAutoCreateRowSorter(true);
+        StudentTable.setBackground(new java.awt.Color(255, 255, 255));
+        StudentTable.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        StudentTable.setForeground(new java.awt.Color(0, 0, 0));
+        StudentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Student Name", "Grade", "No. Of Absents"
+                "Last Name", "First Name", "Middle Initial", "Grade", "Absent"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        table1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jScrollPane2.setViewportView(table1);
+        StudentTable.setRowHeight(30);
+        StudentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        StudentTable.setShowVerticalLines(true);
+        StudentTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(StudentTable);
 
-        HomePanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 460));
-
-        searchText.setBackground(new java.awt.Color(153, 153, 153));
-        searchText.setForeground(new java.awt.Color(0, 0, 0));
-        searchText.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        HomePanel.add(searchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 220, 40));
-
-        myButton1.setBackground(new java.awt.Color(9, 166, 254));
-        myButton1.setForeground(new java.awt.Color(0, 0, 0));
-        myButton1.setText("Search");
-        myButton1.setBorderColor(new java.awt.Color(153, 153, 153));
-        myButton1.setBorderPainted(false);
-        myButton1.setColorClick(new java.awt.Color(153, 153, 153));
-        myButton1.setColorOver(new java.awt.Color(255, 255, 255));
-        myButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        myButton1.setRadius(30);
-        HomePanel.add(myButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 80, 40));
-
-        myButton2.setBackground(new java.awt.Color(9, 166, 254));
-        myButton2.setForeground(new java.awt.Color(0, 0, 0));
-        myButton2.setText("Add Student");
-        myButton2.setBorderColor(new java.awt.Color(153, 153, 153));
-        myButton2.setBorderPainted(false);
-        myButton2.setColorClick(new java.awt.Color(153, 153, 153));
-        myButton2.setColorOver(new java.awt.Color(255, 255, 255));
-        myButton2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        myButton2.setRadius(30);
-        myButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myButton2ActionPerformed(evt);
-            }
-        });
-        HomePanel.add(myButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 150, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-add-45.png"))); // NOI18N
-        jLabel8.setToolTipText("");
-        HomePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 40, 40));
+        HomePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 420));
 
         Parent.add(HomePanel, "card2");
 
@@ -252,20 +269,18 @@ public class MainForm extends javax.swing.JFrame {
         ClassCodeTextBox.setForeground(new java.awt.Color(0, 0, 0));
         AddClassPanel.add(ClassCodeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 220, 30));
 
-        SaveButton.setForeground(new java.awt.Color(0, 0, 0));
-        SaveButton.setText("Save");
-        SaveButton.setBorderColor(new java.awt.Color(0, 0, 0));
-        SaveButton.setBorderPainted(false);
-        SaveButton.setColorClick(new java.awt.Color(102, 102, 102));
-        SaveButton.setColorOver(new java.awt.Color(255, 255, 255));
-        SaveButton.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        SaveButton.setRadius(30);
-        SaveButton.addActionListener(new java.awt.event.ActionListener() {
+        SaveClassInfoButton.setText("Save");
+        SaveClassInfoButton.setBorderColor(new java.awt.Color(0, 0, 0));
+        SaveClassInfoButton.setBorderPainted(false);
+        SaveClassInfoButton.setColorClick(new java.awt.Color(102, 102, 102));
+        SaveClassInfoButton.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        SaveClassInfoButton.setRadius(30);
+        SaveClassInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveButtonActionPerformed(evt);
+                SaveClassInfoButtonActionPerformed(evt);
             }
         });
-        AddClassPanel.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, 40));
+        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, 40));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -305,7 +320,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Grade");
-        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, 30));
+        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
@@ -315,7 +330,7 @@ public class MainForm extends javax.swing.JFrame {
         StudentFNameTextBox.setBackground(new java.awt.Color(255, 255, 255));
         StudentFNameTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         StudentFNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 200, 30));
+        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 170, 30));
 
         StudentGradeTextBox.setBackground(new java.awt.Color(255, 255, 255));
         StudentGradeTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -324,57 +339,45 @@ public class MainForm extends javax.swing.JFrame {
                 StudentGradeTextBoxActionPerformed(evt);
             }
         });
-        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 50, 30));
+        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 30));
 
         StudentAbsentTextBox.setBackground(new java.awt.Color(255, 255, 255));
         StudentAbsentTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         StudentAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 50, 30));
+        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 30));
 
-        SaveButton1.setForeground(new java.awt.Color(0, 0, 0));
-        SaveButton1.setText("Save");
-        SaveButton1.setBorderColor(new java.awt.Color(0, 0, 0));
-        SaveButton1.setBorderPainted(false);
-        SaveButton1.setColorClick(new java.awt.Color(102, 102, 102));
-        SaveButton1.setColorOver(new java.awt.Color(255, 255, 255));
-        SaveButton1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        SaveButton1.setRadius(30);
-        SaveButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddButton.setText("Add");
+        AddButton.setBorderColor(new java.awt.Color(0, 0, 0));
+        AddButton.setBorderPainted(false);
+        AddButton.setColorClick(new java.awt.Color(102, 102, 102));
+        AddButton.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        AddButton.setRadius(30);
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveButton1ActionPerformed(evt);
+                AddButtonActionPerformed(evt);
             }
         });
-        AddStudentPanel.add(SaveButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, 40));
+        AddStudentPanel.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, 40));
 
         StudentLNameTextBox.setBackground(new java.awt.Color(255, 255, 255));
         StudentLNameTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         StudentLNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 200, 30));
+        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 170, 30));
 
         StudentMInitialTextBox.setBackground(new java.awt.Color(255, 255, 255));
         StudentMInitialTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         StudentMInitialTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 40, 30));
-
-        StudentSexTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentSexTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        AddStudentPanel.add(StudentSexTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 50, 30));
+        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 170, 30));
 
         jLabel14.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("M.I");
-        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, -1, 30));
+        jLabel14.setText("Middle Name");
+        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, 30));
 
         jLabel15.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Last name");
-        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, 30));
-
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Sex");
-        AddStudentPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 30));
+        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Bubbles2.png"))); // NOI18N
         AddStudentPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 620, 600));
@@ -389,7 +392,7 @@ public class MainForm extends javax.swing.JFrame {
         HeaderLabel.setBackground(new java.awt.Color(51, 51, 51));
         HeaderLabel.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         HeaderLabel.setForeground(new java.awt.Color(102, 102, 102));
-        HeaderPanel.add(HeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 590, 40));
+        HeaderPanel.add(HeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 480, 40));
 
         jPanel1.add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 90));
 
@@ -399,11 +402,15 @@ public class MainForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+    private void SaveClassInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveClassInfoButtonActionPerformed
         //checking if textbox has texts in it
         if(ClassNameTextBox.getText().isEmpty()|| ClassCodeTextBox.getText().isEmpty() || ClassInstructorTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Kindly enter all necessary fields!");
+        }
+        else if(ClassCodeTextBox.getText().length() > 8)
+        {
+            JOptionPane.showMessageDialog(null,"Kindly make the class code shorter");
         }
         else
         {
@@ -443,6 +450,10 @@ public class MainForm extends javax.swing.JFrame {
                     
                     ListOfFile.clear();
                     ListOfFile = getListOfFiles();
+                    ListPanel.removeAll();
+                    ListPanel.revalidate();
+                    ListPanel.repaint();
+                    InitializeSidePanel();
                 } 
                 catch (IOException ex) 
                 {
@@ -452,68 +463,97 @@ public class MainForm extends javax.swing.JFrame {
             
             
         }
-    }//GEN-LAST:event_SaveButtonActionPerformed
+    }//GEN-LAST:event_SaveClassInfoButtonActionPerformed
 
-    private void myButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myButton2ActionPerformed
+    private void AddStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStudentButtonActionPerformed
         Parent.removeAll();
         Parent.add(AddStudentPanel);
         Parent.repaint();
         Parent.revalidate();
-    }//GEN-LAST:event_myButton2ActionPerformed
+    }//GEN-LAST:event_AddStudentButtonActionPerformed
 
     private void StudentGradeTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentGradeTextBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_StudentGradeTextBoxActionPerformed
 
-    private void SaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButton1ActionPerformed
-        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentMInitialTextBox.getText().isEmpty() || StudentSexTextBox.getText().isEmpty() || StudentGradeTextBox.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty())
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentGradeTextBox.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all fields!");
         }
-        else if(StudentMInitialTextBox.getText().length() > 1)
+        else if(HeaderLabel.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(null,"Please enter the first letter of the middle name only!");
-        }
-        else if((!StudentSexTextBox.getText().equals("M")) || (!StudentSexTextBox.getText().equals("m")) || (!StudentSexTextBox.getText().equals("F")) || (!StudentSexTextBox.getText().equals("f")))
-        {
-            JOptionPane.showMessageDialog(null,"Please enter M or F only for sex!");
+            JOptionPane.showMessageDialog(null,"Please choose class first!");
         }
         else
         {
-            String fName = StudentFNameTextBox.getText();
+            String FName = StudentFNameTextBox.getText();
             String LName = StudentLNameTextBox.getText();
             String MInitial = StudentMInitialTextBox.getText();
-            String Sex = StudentSexTextBox.getText();
-            double Grade;
-            int Absent;
-           
+            double Grade = 0.0;
+            int Absent = 0;
+            boolean isGradeValid = true;
+            boolean isAbsentValid = true;
+
             try
             {
                 Grade = Double.parseDouble(StudentGradeTextBox.getText());
-                if(Grade > 5.00 || Grade < 1.00)
-                {
-                    JOptionPane.showMessageDialog(null,"Please enter a valid grade!");
-                }
             }
             catch(NumberFormatException nfe)
             {
-                  JOptionPane.showMessageDialog(null,"Please enter a valid number format!");
+                isGradeValid = false;
             }
             
             try
             {
                 Absent = Integer.parseInt(StudentAbsentTextBox.getText());
-                if(Absent < 0)
-                {
-                    JOptionPane.showMessageDialog(null, "Please enter a positive number.");
-                }
             }
             catch(NumberFormatException nfe)
             {
-                 JOptionPane.showMessageDialog(null, "Please enter a number format!");
+                isAbsentValid = false;
+            }
+            
+            if(!isGradeValid || !isAbsentValid)
+            {
+                JOptionPane.showMessageDialog(null,"Please enter a valid number format!");
+            }
+            else if(Grade > 5.00 || Grade < 1.00)
+            {
+                JOptionPane.showMessageDialog(null,"Please enter a valid number format for grade!");
+            }
+            else if(Absent < 0)
+            {
+                JOptionPane.showMessageDialog(null,"Please enter a valid number format for number of absent!");
+            }
+            else
+            {
+                DefaultTableModel model  = (DefaultTableModel)StudentTable.getModel();
+                model.addRow(new Object []{FName, LName, MInitial,Grade,Absent});
+                
+                StudentFNameTextBox.setText(null);
+                StudentLNameTextBox.setText(null);
+                StudentMInitialTextBox.setText(null);
+                StudentGradeTextBox.setText(null);
+                StudentAbsentTextBox.setText(null);
+                
+                FName = null;
+                LName = null;
+                MInitial = null;
+                Grade = 0.0;
+                Absent = 0;
+                
+                JOptionPane.showMessageDialog(null, "Succesfully added student to the class " + HeaderLabel.getText() + ".");
+                
+                Parent.removeAll();
+                Parent.add(HomePanel);
+                Parent.repaint();
+                Parent.revalidate();
+                
+                isGradeValid = true;
+                isAbsentValid = true;
             }
         }
-    }//GEN-LAST:event_SaveButton1ActionPerformed
+    }//GEN-LAST:event_AddButtonActionPerformed
 
     private void AddClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddClassButtonActionPerformed
         Parent.removeAll();
@@ -521,6 +561,14 @@ public class MainForm extends javax.swing.JFrame {
         Parent.repaint();
         Parent.revalidate();
     }//GEN-LAST:event_AddClassButtonActionPerformed
+
+    private void DeleteStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteStudentButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteStudentButtonActionPerformed
+
+    private void SaveStudInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveStudInfoButtonActionPerformed
+        getDataFromTable();
+    }//GEN-LAST:event_SaveStudInfoButtonActionPerformed
 
     private ArrayList <String> getListOfFiles()
     {
@@ -540,6 +588,201 @@ public class MainForm extends javax.swing.JFrame {
         
         return listOfFile;
     }
+    
+    private ArrayList <Student> readFile(String filename)
+    {
+        String databaseDir = homeDir + File.separator + "Database";
+        String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
+        File file = new File(filePath);
+        String demarcation = ",";
+        ArrayList <Student> stud = new ArrayList<Student>();
+        
+        String fname = null;
+        String lname = null;
+        String minitial = null;
+        double grade = 0.0;
+        int absent = 0;
+        try
+        {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while((line = reader.readLine()) != null)
+            {
+                int ctr = 0;
+                int startIndex = 0;
+                int endIndex = line.indexOf(demarcation, startIndex);
+                
+                while(endIndex != -1)
+                {
+                    String parts = line.substring(startIndex, endIndex);
+                    switch (ctr) 
+                    {
+                        case 0 -> {
+                            fname = parts;
+                            ctr++;
+                        }
+                        case 1 -> {
+                            lname = parts;
+                            ctr++;
+                        }
+                        case 2 -> {
+                            minitial = parts;
+                            ctr++;
+                        }
+                        case 3 ->{
+                            grade = Double.valueOf(parts);
+                        }
+                        default -> {
+                        }
+                    }
+                    startIndex = endIndex + 1;
+                    endIndex  = line.indexOf(demarcation, startIndex);
+                }
+                String parts = line.substring(startIndex);
+                absent = Integer.valueOf(parts);
+                Student s1 = new Student(fname, lname, minitial, grade, absent);
+                stud.add(s1);
+            }
+            reader.close();
+        }
+        catch(IOException e)
+        {
+            e.getStackTrace();
+        }
+        
+        return stud;
+    }
+    
+    private int writeFile(ArrayList <Student> stud, String filename)
+    {
+        int isFileCreated = 1;
+        String databaseDir = homeDir + File.separator + "Database";
+        String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
+        File file = new File(filePath);
+        try
+        {
+            BufferedWriter input = new BufferedWriter(new FileWriter(file));
+            for(Student studs: stud)
+            {
+                input.write(studs.getFirstname() + "," + studs.getLastname() + "," + studs.getMiddleInitial() + "," + studs.getGrade() + "," + studs.getAbsent() + "\n");
+            }
+            input.flush();
+            input.close();
+        }
+        catch(IOException e)
+        {
+            e.getStackTrace();
+            isFileCreated = 0;
+        }
+        return isFileCreated;
+    }
+    
+    private void  populateTable(ArrayList <Student> stud)
+    {
+        DefaultTableModel model = (DefaultTableModel) StudentTable.getModel();
+        Object rowData[] = new Object[5];
+        
+        for(int i  = 0 ; i < stud.size(); i++)
+        {
+            rowData[0] = stud.get(i).getFirstname();
+            rowData[1] = stud.get(i).getLastname();
+            rowData[2] = stud.get(i).getMiddleInitial();
+            rowData[3] = stud.get(i).getGrade();
+            rowData[4] = stud.get(i).getAbsent();
+            model.addRow(rowData);
+        }
+    }
+    
+    private void theader()
+    {
+        JTableHeader thead = StudentTable.getTableHeader();
+        thead.setForeground(new Color(0,0,0));
+        thead.setBackground(new Color(230,232,240));
+        thead.setFont(new Font("Verdana", Font.BOLD, 14));
+        thead.setOpaque(true);
+        thead.getColumnModel().setColumnMargin(30);
+        thead.setPreferredSize(new Dimension(100, 30));
+    }
+    
+    private void InitializeSidePanel()
+    {
+        ListOfFile = getListOfFiles();
+        for(String str: ListOfFile)
+        {
+            MyButton textButton = new MyButton();
+            textButton.setForeground(Color.black);
+            textButton.setBackground(new Color(9,166,254));
+            textButton.setOpaque(true);
+            textButton.setFont(new Font("Verdana", 1, 18));
+            textButton.setRadius(30);
+            
+            textButton.setText(str);
+            ListPanel.add(textButton);
+            ListPanel.add(Box.createVerticalStrut(5));
+            
+            textButton.addMouseListener(new MouseAdapter() 
+            {
+                @Override
+                public void mouseClicked(MouseEvent e) 
+                {
+                    HeaderLabel.setText(str);
+                    Parent.removeAll();
+                    Parent.add(HomePanel);
+                    Parent.repaint();
+                    Parent.revalidate();
+                    mouseClicked = true;
+                    
+                    if(mouseClicked)
+                    {
+                        ArrayList <Student> students = new ArrayList <Student>();
+                        students = readFile(HeaderLabel.getText());
+                        clearTable();
+                        populateTable(students);
+                        mouseClicked = false;
+                    }
+                }
+            });
+        }  
+    }
+    
+    private void clearTable()
+    {
+        DefaultTableModel model = (DefaultTableModel) StudentTable.getModel();
+        while(model.getRowCount() > 0)
+        {
+            model.removeRow(0);
+        }
+    }
+    
+    private ArrayList <Student> getDataFromTable()
+    {
+        ArrayList <Student> students = new ArrayList<Student>();
+        
+        DefaultTableModel model = (DefaultTableModel) StudentTable.getModel();
+        int rowCount = model.getRowCount();
+        
+        String fname;
+        String lname;
+        String midname;
+        double grade;
+        int absent;
+        
+        for(int i = 0; i < rowCount; i++)
+        {
+            fname = String.valueOf(model.getValueAt(i, 0));
+            lname = String.valueOf(model.getValueAt(i, 1));
+            midname = String.valueOf(model.getValueAt(i, 2));
+            String g = String.valueOf(model.getValueAt(i, 3));
+            grade = Double.valueOf(g);
+            String a = String.valueOf(model.getValueAt(i, 4));
+            absent = Integer.valueOf(a);
+            Student s = new Student(fname, lname, midname, grade, absent);
+            students.add(s);
+        }    
+         
+        return students;
+    }
+    
     public static void main(String args[]) 
     {
         java.awt.EventQueue.invokeLater(() -> {
@@ -548,26 +791,31 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.mycompany.classrecord.MyButton AddButton;
     private com.mycompany.classrecord.MyButton AddClassButton;
     private javax.swing.JPanel AddClassPanel;
+    private com.mycompany.classrecord.MyButton AddStudentButton;
     private javax.swing.JPanel AddStudentPanel;
     private javax.swing.JTextField ClassCodeTextBox;
     private javax.swing.JTextField ClassInstructorTextBox;
     private javax.swing.JTextField ClassNameTextBox;
+    private com.mycompany.classrecord.MyButton DeleteClassButton;
+    private com.mycompany.classrecord.MyButton DeleteStudentButton;
     private javax.swing.JLabel HeaderLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JPanel ListPanel;
     private javax.swing.JPanel Parent;
-    private com.mycompany.classrecord.MyButton SaveButton;
-    private com.mycompany.classrecord.MyButton SaveButton1;
+    private com.mycompany.classrecord.MyButton SaveClassInfoButton;
+    private com.mycompany.classrecord.MyButton SaveStudInfoButton;
+    private javax.swing.JScrollPane ScrollPane;
     private javax.swing.JPanel SidebarPanel;
     private javax.swing.JTextField StudentAbsentTextBox;
     private javax.swing.JTextField StudentFNameTextBox;
     private javax.swing.JTextField StudentGradeTextBox;
     private javax.swing.JTextField StudentLNameTextBox;
     private javax.swing.JTextField StudentMInitialTextBox;
-    private javax.swing.JTextField StudentSexTextBox;
+    private javax.swing.JTable StudentTable;
     private javax.swing.JLabel TeachersNameLabel;
     private javax.swing.JLabel Top_Icon;
     private javax.swing.JLabel WelcomeBackLabel;
@@ -578,7 +826,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -588,13 +835,11 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTree jTree1;
     private com.mycompany.classrecord.MyButton myButton1;
-    private com.mycompany.classrecord.MyButton myButton2;
     private pkgclass.record.SearchText searchText;
-    private pkgclass.record.Table table1;
     // End of variables declaration//GEN-END:variables
 }
