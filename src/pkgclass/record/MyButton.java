@@ -1,4 +1,4 @@
-package com.mycompany.classrecord;
+package pkgclass.record;
 
 import java.awt.Color;
 import java.awt.Graphics;

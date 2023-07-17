@@ -5,7 +5,6 @@ import java.io.*;
 import javax.swing.*;
 import java.util.*;
 import javax.swing.border.*;
-import com.mycompany.classrecord.MyButton;
 import java.awt.event.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.TableModelEvent;
@@ -15,7 +14,6 @@ import javax.swing.table.JTableHeader;
 
 public class MainForm extends javax.swing.JFrame {
 
-    String name = "Juan";
     String homeDir = System.getProperty("user.home");       //getting the home directory of the user's laptop
     
     ArrayList <String> ListOfFile = new ArrayList<>();
@@ -26,7 +24,6 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() 
     {
         initComponents();
-        TeachersNameLabel.setText("Teacher " + name);
         StudentTable.setGridColor(Color.BLACK);
         theader();
 
@@ -68,18 +65,18 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         WelcomeBackLabel = new javax.swing.JLabel();
         TeachersNameLabel = new javax.swing.JLabel();
-        AddClassButton = new com.mycompany.classrecord.MyButton();
+        AddClassButton = new pkgclass.record.MyButton();
         jLabel7 = new javax.swing.JLabel();
         ScrollPane = new javax.swing.JScrollPane();
         ListPanel = new javax.swing.JPanel();
         LogoutButton = new javax.swing.JButton();
         Parent = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
-        AddStudentButton = new com.mycompany.classrecord.MyButton();
+        AddStudentButton = new pkgclass.record.MyButton();
         jLabel8 = new javax.swing.JLabel();
-        SaveStudInfoButton = new com.mycompany.classrecord.MyButton();
-        DeleteClassButton = new com.mycompany.classrecord.MyButton();
-        DeleteStudentButton = new com.mycompany.classrecord.MyButton();
+        SaveStudInfoButton = new pkgclass.record.MyButton();
+        DeleteClassButton = new pkgclass.record.MyButton();
+        DeleteStudentButton = new pkgclass.record.MyButton();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentTable = new javax.swing.JTable();
@@ -87,10 +84,10 @@ public class MainForm extends javax.swing.JFrame {
         AddClassPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        SaveClassInfoButton = new com.mycompany.classrecord.MyButton();
-        ClassNameTextBox = new com.mycompany.classrecord.FTextField();
-        ClassCodeTextBox = new com.mycompany.classrecord.FTextField();
-        ClassInstructorTextBox = new com.mycompany.classrecord.FTextField();
+        SaveClassInfoButton = new pkgclass.record.MyButton();
+        ClassNameTextBox = new pkgclass.record.FTextField();
+        ClassCodeTextBox = new pkgclass.record.FTextField();
+        ClassInstructorTextBox = new pkgclass.record.FTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -99,14 +96,14 @@ public class MainForm extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        AddButton = new com.mycompany.classrecord.MyButton();
-        StudentFNameTextBox = new com.mycompany.classrecord.FTextField();
-        StudentLNameTextBox = new com.mycompany.classrecord.FTextField();
-        StudentMInitialTextBox = new com.mycompany.classrecord.FTextField();
-        StudentGradeTextBox = new com.mycompany.classrecord.FTextField();
-        StudentAbsentTextBox = new com.mycompany.classrecord.FTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        AddButton = new pkgclass.record.MyButton();
+        StudentFNameTextBox = new pkgclass.record.FTextField();
+        StudentLNameTextBox = new pkgclass.record.FTextField();
+        StudentMInitialTextBox = new pkgclass.record.FTextField();
+        StudentGradeTextBox = new pkgclass.record.FTextField();
+        StudentAbsentTextBox = new pkgclass.record.FTextField();
         jLabel13 = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -135,8 +132,10 @@ public class MainForm extends javax.swing.JFrame {
         WelcomeBackLabel.setText("Welcome back");
         SidebarPanel.add(WelcomeBackLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
 
-        TeachersNameLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        SidebarPanel.add(TeachersNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 30));
+        TeachersNameLabel.setFont(new java.awt.Font("Rockwell", 0, 20)); // NOI18N
+        TeachersNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        TeachersNameLabel.setText("USER");
+        SidebarPanel.add(TeachersNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 50, 30));
 
         AddClassButton.setText("Add class");
         AddClassButton.setBorderPainted(false);
@@ -165,7 +164,7 @@ public class MainForm extends javax.swing.JFrame {
         SidebarPanel.add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 170, 300));
 
         LogoutButton.setBackground(new java.awt.Color(230, 232, 240));
-        LogoutButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        LogoutButton.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         LogoutButton.setForeground(new java.awt.Color(0, 0, 0));
         LogoutButton.setText("Logout");
         LogoutButton.setBorder(null);
@@ -365,6 +364,16 @@ public class MainForm extends javax.swing.JFrame {
         jLabel12.setText("No. of Absents");
         AddStudentPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, 30));
 
+        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Middle Name");
+        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
+
+        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Lastname");
+        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 30));
+
         AddButton.setText("Add");
         AddButton.setBorderColor(new java.awt.Color(0, 0, 0));
         AddButton.setBorderPainted(false);
@@ -397,16 +406,6 @@ public class MainForm extends javax.swing.JFrame {
         StudentAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 140, 40));
-
-        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Middle Name");
-        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
-
-        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Lastname");
-        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Bubbles2.png"))); // NOI18N
         AddStudentPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 600));
@@ -442,14 +441,14 @@ public class MainForm extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Kindly enter all necessary fields!");
         }
-        else if(ClassCodeTextBox.getText().length() > 8)
+        else if(ClassCodeTextBox.getText().length() > 15)
         {
             JOptionPane.showMessageDialog(null,"Kindly make the class code shorter");
         }
         else
         {
             String classCode = ClassCodeTextBox.getText();                                      //getting class code for the name of the file
-            String databaseDir = homeDir + File.separator + "Database";                     //concatinating home dirctory with the name Database
+            String databaseDir = homeDir + File.separator + "ClassRecordDatabase";                     //concatinating home dirctory with the name Database
             String filePath = databaseDir + File.separator + "\\" + classCode +".txt";  //making a string filepath for the file
             
             File file = new File(filePath);                                                                        //making a string filepath for the file
@@ -514,7 +513,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_AddStudentButtonActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || jLabel13.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty())
+        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentMInitialTextBox.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty() || StudentGradeTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all fields!");
         }
@@ -534,7 +533,7 @@ public class MainForm extends javax.swing.JFrame {
 
             try
             {
-                Grade = Double.parseDouble(jLabel13.getText());
+                Grade = Double.parseDouble(StudentGradeTextBox.getText());
             }
             catch(NumberFormatException nfe)
             {
@@ -554,7 +553,7 @@ public class MainForm extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Please enter a valid number format!");
             }
-            else if(Grade > 5.00 || Grade < 1.00)
+            else if(Grade > 5.00 || Grade < 0.00)
             {
                 JOptionPane.showMessageDialog(null,"Please enter a valid number format for grade!");
             }
@@ -565,12 +564,12 @@ public class MainForm extends javax.swing.JFrame {
             else
             {
                 DefaultTableModel model  = (DefaultTableModel)StudentTable.getModel();
-                model.addRow(new Object []{FName, LName, MInitial,Grade,Absent});
+                model.addRow(new Object []{model.getRowCount()+1, LName, FName, MInitial,Grade,Absent});
                 
                 StudentFNameTextBox.setText(null);
                 StudentLNameTextBox.setText(null);
                 StudentMInitialTextBox.setText(null);
-                jLabel13.setText(null);
+                StudentGradeTextBox.setText(null);
                 StudentAbsentTextBox.setText(null);
                 
                 FName = null;
@@ -648,8 +647,14 @@ public class MainForm extends javax.swing.JFrame {
                     MyButton button = (MyButton) component;
                     if(button.getText().equals(HeaderLabel.getText()))
                     {
+                        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";                    
+                        String filePath = databaseDir + File.separator + "\\" + HeaderLabel.getText() +".txt";
+                        File file = new File(filePath); 
+                        
+                        file.delete();
+                        
                         ListPanel.remove(button);
-                         ListPanel.revalidate();
+                        ListPanel.revalidate();
                         ListPanel.repaint();
                         JOptionPane.showMessageDialog(null, "Succesfully removed class!");
                     }
@@ -666,7 +671,13 @@ public class MainForm extends javax.swing.JFrame {
     private ArrayList <String> getListOfFiles()
     {
         ArrayList <String> listOfFile = new ArrayList<String>();
-        String databaseDir = homeDir + File.separator + "Database";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
+        File folder = new File(databaseDir);   
+        
+        if(!folder.exists())
+        {
+            folder.mkdirs();                                                                                //creating database folder
+        }
         
         File fldr = new File(databaseDir);
         File [] files = fldr.listFiles();
@@ -684,7 +695,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private ArrayList <Student> readFile(String filename)
     {
-        String databaseDir = homeDir + File.separator + "Database";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         String demarcation = ",";
@@ -749,7 +760,7 @@ public class MainForm extends javax.swing.JFrame {
     private int writeToFile(ArrayList <Student> stud, String filename)
     {
         int isFileCreated = 1;
-        String databaseDir = homeDir + File.separator + "Database";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         try
@@ -772,7 +783,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void deleteFromFile(String filename)
     {
-        String databaseDir = homeDir + File.separator + "Database";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         try (FileWriter fileWriter = new FileWriter(file, false)) 
@@ -883,12 +894,12 @@ public class MainForm extends javax.swing.JFrame {
         {
             if(((model.getValueAt(i,0) != null && model.getValueAt(i,1) != null && model.getValueAt(i,2) != null && model.getValueAt(i,3) != null && model.getValueAt(i,4) != null)))
             {
-                fname = String.valueOf(model.getValueAt(i, 0));
-                lname = String.valueOf(model.getValueAt(i, 1));
-                midname = String.valueOf(model.getValueAt(i, 2));
-                String g = String.valueOf(model.getValueAt(i, 3));
+                fname = String.valueOf(model.getValueAt(i, 1));
+                lname = String.valueOf(model.getValueAt(i, 2));
+                midname = String.valueOf(model.getValueAt(i, 3));
+                String g = String.valueOf(model.getValueAt(i, 4));
                 grade = Double.valueOf(g);
-                String a = String.valueOf(model.getValueAt(i, 4));
+                String a = String.valueOf(model.getValueAt(i, 5));
                 absent = Integer.valueOf(a);
                 Student s = new Student(fname, lname, midname, grade, absent);
                 students.add(s);
@@ -925,31 +936,31 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.mycompany.classrecord.MyButton AddButton;
-    private com.mycompany.classrecord.MyButton AddClassButton;
+    private pkgclass.record.MyButton AddButton;
+    private pkgclass.record.MyButton AddClassButton;
     private javax.swing.JPanel AddClassPanel;
-    private com.mycompany.classrecord.MyButton AddStudentButton;
+    private pkgclass.record.MyButton AddStudentButton;
     private javax.swing.JPanel AddStudentPanel;
-    private com.mycompany.classrecord.FTextField ClassCodeTextBox;
-    private com.mycompany.classrecord.FTextField ClassInstructorTextBox;
-    private com.mycompany.classrecord.FTextField ClassNameTextBox;
-    private com.mycompany.classrecord.MyButton DeleteClassButton;
-    private com.mycompany.classrecord.MyButton DeleteStudentButton;
+    private pkgclass.record.FTextField ClassCodeTextBox;
+    private pkgclass.record.FTextField ClassInstructorTextBox;
+    private pkgclass.record.FTextField ClassNameTextBox;
+    private pkgclass.record.MyButton DeleteClassButton;
+    private pkgclass.record.MyButton DeleteStudentButton;
     private javax.swing.JLabel HeaderLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JPanel ListPanel;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JPanel Parent;
-    private com.mycompany.classrecord.MyButton SaveClassInfoButton;
-    private com.mycompany.classrecord.MyButton SaveStudInfoButton;
+    private pkgclass.record.MyButton SaveClassInfoButton;
+    private pkgclass.record.MyButton SaveStudInfoButton;
     private javax.swing.JScrollPane ScrollPane;
     private javax.swing.JPanel SidebarPanel;
-    private com.mycompany.classrecord.FTextField StudentAbsentTextBox;
-    private com.mycompany.classrecord.FTextField StudentFNameTextBox;
-    private com.mycompany.classrecord.FTextField StudentGradeTextBox;
-    private com.mycompany.classrecord.FTextField StudentLNameTextBox;
-    private com.mycompany.classrecord.FTextField StudentMInitialTextBox;
+    private pkgclass.record.FTextField StudentAbsentTextBox;
+    private pkgclass.record.FTextField StudentFNameTextBox;
+    private pkgclass.record.FTextField StudentGradeTextBox;
+    private pkgclass.record.FTextField StudentLNameTextBox;
+    private pkgclass.record.FTextField StudentMInitialTextBox;
     private javax.swing.JTable StudentTable;
     private javax.swing.JLabel TeachersNameLabel;
     private javax.swing.JPanel TopParent;

@@ -1,4 +1,4 @@
-package com.mycompany.classrecord;
+package pkgclass.record;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -6,14 +6,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
-import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
-public class FTextField extends JTextField{
+public class PasswordTextField extends JPasswordField{
     private Color fillColor;
     private Color lineColor;
     private int strokeWidth;
        
-    public FTextField() {
+    public PasswordTextField() {
         fillColor = new Color(236, 240, 241);
         lineColor = new Color(52, 152, 219);
         strokeWidth = 2;
