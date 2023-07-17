@@ -62,17 +62,17 @@ public class MainForm extends javax.swing.JFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
-        jPanel1 = new javax.swing.JPanel();
+        TopParent = new javax.swing.JPanel();
         SidebarPanel = new javax.swing.JPanel();
         Top_Icon = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         WelcomeBackLabel = new javax.swing.JLabel();
         TeachersNameLabel = new javax.swing.JLabel();
         AddClassButton = new com.mycompany.classrecord.MyButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         ScrollPane = new javax.swing.JScrollPane();
         ListPanel = new javax.swing.JPanel();
+        LogoutButton = new javax.swing.JButton();
         Parent = new javax.swing.JPanel();
         HomePanel = new javax.swing.JPanel();
         AddStudentButton = new com.mycompany.classrecord.MyButton();
@@ -86,29 +86,30 @@ public class MainForm extends javax.swing.JFrame {
         HeaderLabel = new javax.swing.JLabel();
         AddClassPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        ClassNameTextBox = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        ClassCodeTextBox = new javax.swing.JTextField();
         SaveClassInfoButton = new com.mycompany.classrecord.MyButton();
+        ClassNameTextBox = new com.mycompany.classrecord.FTextField();
+        ClassCodeTextBox = new com.mycompany.classrecord.FTextField();
+        ClassInstructorTextBox = new com.mycompany.classrecord.FTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        ClassInstructorTextBox = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         AddStudentPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        StudentFNameTextBox = new javax.swing.JTextField();
-        StudentGradeTextBox = new javax.swing.JTextField();
-        StudentAbsentTextBox = new javax.swing.JTextField();
         AddButton = new com.mycompany.classrecord.MyButton();
-        StudentLNameTextBox = new javax.swing.JTextField();
-        StudentMInitialTextBox = new javax.swing.JTextField();
+        StudentFNameTextBox = new com.mycompany.classrecord.FTextField();
+        StudentLNameTextBox = new com.mycompany.classrecord.FTextField();
+        StudentMInitialTextBox = new com.mycompany.classrecord.FTextField();
+        StudentGradeTextBox = new com.mycompany.classrecord.FTextField();
+        StudentAbsentTextBox = new com.mycompany.classrecord.FTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
         jScrollPane3.setViewportView(jTree1);
@@ -117,8 +118,8 @@ public class MainForm extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TopParent.setBackground(new java.awt.Color(0, 0, 0));
+        TopParent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SidebarPanel.setBackground(new java.awt.Color(230, 232, 240));
         SidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,13 +152,8 @@ public class MainForm extends javax.swing.JFrame {
         });
         SidebarPanel.add(AddClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 130, 40));
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Logout");
-        SidebarPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, 30));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-logout-50 (1).png"))); // NOI18N
-        SidebarPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 30, -1));
+        SidebarPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 30, -1));
 
         ScrollPane.setBackground(new java.awt.Color(230, 232, 240));
         ScrollPane.setForeground(new java.awt.Color(230, 232, 240));
@@ -168,7 +164,19 @@ public class MainForm extends javax.swing.JFrame {
 
         SidebarPanel.add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 170, 300));
 
-        jPanel1.add(SidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
+        LogoutButton.setBackground(new java.awt.Color(230, 232, 240));
+        LogoutButton.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        LogoutButton.setForeground(new java.awt.Color(0, 0, 0));
+        LogoutButton.setText("Logout");
+        LogoutButton.setBorder(null);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+        SidebarPanel.add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 618, -1, 30));
+
+        TopParent.add(SidebarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 690));
 
         Parent.setBackground(new java.awt.Color(255, 255, 255));
         Parent.setLayout(new java.awt.CardLayout());
@@ -226,7 +234,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        HomePanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 120, 20));
+        HomePanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 200, 20));
 
         StudentTable.setAutoCreateRowSorter(true);
         StudentTable.setBackground(new java.awt.Color(255, 255, 255));
@@ -259,13 +267,11 @@ public class MainForm extends javax.swing.JFrame {
         StudentTable.setRowHeight(30);
         StudentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         StudentTable.setShowGrid(true);
-        StudentTable.setShowHorizontalLines(true);
-        StudentTable.setShowVerticalLines(true);
         StudentTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(StudentTable);
         if (StudentTable.getColumnModel().getColumnCount() > 0) {
             StudentTable.getColumnModel().getColumn(0).setResizable(false);
-            StudentTable.getColumnModel().getColumn(0).setPreferredWidth(3);
+            StudentTable.getColumnModel().getColumn(0).setPreferredWidth(1);
             StudentTable.getColumnModel().getColumn(4).setResizable(false);
             StudentTable.getColumnModel().getColumn(4).setPreferredWidth(3);
             StudentTable.getColumnModel().getColumn(5).setResizable(false);
@@ -275,7 +281,7 @@ public class MainForm extends javax.swing.JFrame {
         HomePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 600, 420));
 
         HeaderLabel.setBackground(new java.awt.Color(51, 51, 51));
-        HeaderLabel.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        HeaderLabel.setFont(new java.awt.Font("Rockwell", 1, 24)); // NOI18N
         HeaderLabel.setForeground(new java.awt.Color(0, 0, 0));
         HomePanel.add(HeaderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 170, 40));
 
@@ -284,25 +290,15 @@ public class MainForm extends javax.swing.JFrame {
         AddClassPanel.setBackground(new java.awt.Color(255, 255, 255));
         AddClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Enter class name");
-        AddClassPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 130, 30));
+        AddClassPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 150, 30));
 
-        ClassNameTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        ClassNameTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        ClassNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddClassPanel.add(ClassNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 220, 30));
-
-        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Enter class code");
-        AddClassPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-
-        ClassCodeTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        ClassCodeTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        ClassCodeTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddClassPanel.add(ClassCodeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 220, 30));
+        AddClassPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 30));
 
         SaveClassInfoButton.setText("Save");
         SaveClassInfoButton.setBorderColor(new java.awt.Color(0, 0, 0));
@@ -315,7 +311,19 @@ public class MainForm extends javax.swing.JFrame {
                 SaveClassInfoButtonActionPerformed(evt);
             }
         });
-        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, 40));
+        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, 40));
+
+        ClassNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        ClassNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddClassPanel.add(ClassNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 210, 40));
+
+        ClassCodeTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        ClassCodeTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddClassPanel.add(ClassCodeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 40));
+
+        ClassInstructorTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        ClassInstructorTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddClassPanel.add(ClassInstructorTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 210, 40));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -323,15 +331,10 @@ public class MainForm extends javax.swing.JFrame {
         AddClassPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 190, 50));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Enter class instructor");
-        AddClassPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, 30));
-
-        ClassInstructorTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        ClassInstructorTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        ClassInstructorTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddClassPanel.add(ClassInstructorTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 220, 30));
+        AddClassPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/subheader_image@2x.png"))); // NOI18N
         AddClassPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 30, 690, 500));
@@ -346,40 +349,21 @@ public class MainForm extends javax.swing.JFrame {
         jLabel9.setText("Student Information");
         AddStudentPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, 40));
 
-        jLabel10.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("First name");
-        AddStudentPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 30));
+        jLabel10.setText("Firstname");
+        AddStudentPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, 30));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Grade");
-        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 30));
+        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 30));
 
-        jLabel12.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("No. of Absents");
-        AddStudentPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 30));
-
-        StudentFNameTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentFNameTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        StudentFNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 170, 30));
-
-        StudentGradeTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentGradeTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        StudentGradeTextBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StudentGradeTextBoxActionPerformed(evt);
-            }
-        });
-        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 30));
-
-        StudentAbsentTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentAbsentTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        StudentAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 30));
+        AddStudentPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, 30));
 
         AddButton.setText("Add");
         AddButton.setBorderColor(new java.awt.Color(0, 0, 0));
@@ -392,46 +376,61 @@ public class MainForm extends javax.swing.JFrame {
                 AddButtonActionPerformed(evt);
             }
         });
-        AddStudentPanel.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, 40));
+        AddStudentPanel.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, 40));
 
-        StudentLNameTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentLNameTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        StudentFNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        StudentFNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 220, 40));
+
         StudentLNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 170, 30));
+        StudentLNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 220, 40));
 
-        StudentMInitialTextBox.setBackground(new java.awt.Color(255, 255, 255));
-        StudentMInitialTextBox.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         StudentMInitialTextBox.setForeground(new java.awt.Color(0, 0, 0));
-        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 170, 30));
+        StudentMInitialTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 40));
 
-        jLabel14.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        StudentGradeTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        StudentGradeTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 70, 40));
+
+        StudentAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        StudentAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 140, 40));
+
+        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Middle Name");
-        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, 30));
+        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
 
-        jLabel15.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Last name");
-        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, 30));
+        jLabel15.setText("Lastname");
+        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Bubbles2.png"))); // NOI18N
-        AddStudentPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 620, 600));
+        AddStudentPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 600));
 
         Parent.add(AddStudentPanel, "card4");
 
-        jPanel1.add(Parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 630, 600));
+        TopParent.add(Parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 630, 600));
 
         HeaderPanel.setBackground(new java.awt.Color(225, 230, 253));
         HeaderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel16.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel16.setText("Class Record");
-        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 180, 50));
+        jLabel17.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(249, 113, 98));
+        jLabel17.setText("record");
+        HeaderPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, 50));
 
-        jPanel1.add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 90));
+        jLabel16.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(139, 116, 214));
+        jLabel16.setText("Class");
+        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 110, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 690));
+        TopParent.add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 90));
+
+        getContentPane().add(TopParent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 690));
 
         setSize(new java.awt.Dimension(887, 693));
         setLocationRelativeTo(null);
@@ -501,18 +500,21 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveClassInfoButtonActionPerformed
 
     private void AddStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStudentButtonActionPerformed
-        Parent.removeAll();
-        Parent.add(AddStudentPanel);
-        Parent.repaint();
-        Parent.revalidate();
+        if(HeaderLabel.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Kindly choose a class first!");
+        }
+        else
+        {
+            Parent.removeAll();
+            Parent.add(AddStudentPanel);
+            Parent.repaint();
+            Parent.revalidate();
+        }
     }//GEN-LAST:event_AddStudentButtonActionPerformed
 
-    private void StudentGradeTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentGradeTextBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StudentGradeTextBoxActionPerformed
-
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentGradeTextBox.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty())
+        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || jLabel13.getText().isEmpty() || StudentAbsentTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all fields!");
         }
@@ -532,7 +534,7 @@ public class MainForm extends javax.swing.JFrame {
 
             try
             {
-                Grade = Double.parseDouble(StudentGradeTextBox.getText());
+                Grade = Double.parseDouble(jLabel13.getText());
             }
             catch(NumberFormatException nfe)
             {
@@ -568,7 +570,7 @@ public class MainForm extends javax.swing.JFrame {
                 StudentFNameTextBox.setText(null);
                 StudentLNameTextBox.setText(null);
                 StudentMInitialTextBox.setText(null);
-                StudentGradeTextBox.setText(null);
+                jLabel13.setText(null);
                 StudentAbsentTextBox.setText(null);
                 
                 FName = null;
@@ -655,6 +657,11 @@ public class MainForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_DeleteClassButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        new LoginForm().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private ArrayList <String> getListOfFiles()
     {
@@ -782,16 +789,17 @@ public class MainForm extends javax.swing.JFrame {
     {
         DefaultTableModel model = (DefaultTableModel) StudentTable.getModel();
         Object rowData[] = new Object[6];
-     
+        int count = 1;
         for(int i  = 0 ; i < stud.size(); i++)
         {
-            rowData[0] = i;
+            rowData[0] = count;
             rowData[1] = stud.get(i).getLastname();
             rowData[2] = stud.get(i).getFirstname();
             rowData[3] = stud.get(i).getMiddleInitial();
             rowData[4] = stud.get(i).getGrade();
             rowData[5] = stud.get(i).getAbsent();
             model.addRow(rowData);
+            count++;
         }
     }
     
@@ -815,7 +823,7 @@ public class MainForm extends javax.swing.JFrame {
             textButton.setForeground(Color.black);
             textButton.setBackground(new Color(9,166,254));
             textButton.setOpaque(true);
-            textButton.setFont(new Font("Verdana", 1, 18));
+            textButton.setFont(new Font("Rockwell", 1, 18));
             textButton.setRadius(30);
             
             textButton.setText(str);
@@ -922,30 +930,31 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel AddClassPanel;
     private com.mycompany.classrecord.MyButton AddStudentButton;
     private javax.swing.JPanel AddStudentPanel;
-    private javax.swing.JTextField ClassCodeTextBox;
-    private javax.swing.JTextField ClassInstructorTextBox;
-    private javax.swing.JTextField ClassNameTextBox;
+    private com.mycompany.classrecord.FTextField ClassCodeTextBox;
+    private com.mycompany.classrecord.FTextField ClassInstructorTextBox;
+    private com.mycompany.classrecord.FTextField ClassNameTextBox;
     private com.mycompany.classrecord.MyButton DeleteClassButton;
     private com.mycompany.classrecord.MyButton DeleteStudentButton;
     private javax.swing.JLabel HeaderLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel HomePanel;
     private javax.swing.JPanel ListPanel;
+    private javax.swing.JButton LogoutButton;
     private javax.swing.JPanel Parent;
     private com.mycompany.classrecord.MyButton SaveClassInfoButton;
     private com.mycompany.classrecord.MyButton SaveStudInfoButton;
     private javax.swing.JScrollPane ScrollPane;
     private javax.swing.JPanel SidebarPanel;
-    private javax.swing.JTextField StudentAbsentTextBox;
-    private javax.swing.JTextField StudentFNameTextBox;
-    private javax.swing.JTextField StudentGradeTextBox;
-    private javax.swing.JTextField StudentLNameTextBox;
-    private javax.swing.JTextField StudentMInitialTextBox;
+    private com.mycompany.classrecord.FTextField StudentAbsentTextBox;
+    private com.mycompany.classrecord.FTextField StudentFNameTextBox;
+    private com.mycompany.classrecord.FTextField StudentGradeTextBox;
+    private com.mycompany.classrecord.FTextField StudentLNameTextBox;
+    private com.mycompany.classrecord.FTextField StudentMInitialTextBox;
     private javax.swing.JTable StudentTable;
     private javax.swing.JLabel TeachersNameLabel;
+    private javax.swing.JPanel TopParent;
     private javax.swing.JLabel Top_Icon;
     private javax.swing.JLabel WelcomeBackLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -953,6 +962,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -961,7 +971,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
