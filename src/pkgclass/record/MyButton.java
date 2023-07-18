@@ -63,9 +63,9 @@ public final class MyButton extends JButton {
     {
         //  Init Color
         setColor(new Color(255,255,255));
-        setBackground(new Color(9,166,254));
+        setBackground(new Color(34,63,135));//rgba(34,63,135,255)
         setForeground(Color.black);
-        colorOver = new Color(255,255,255);
+        colorOver = new Color(197,76,89);
         colorClick = new Color(153,153,153);
         borderColor = new Color(153,153,153);
         setContentAreaFilled(false);
@@ -75,14 +75,14 @@ public final class MyButton extends JButton {
             @Override
             public void mouseEntered(MouseEvent me) 
             {
-                setBackground(new Color(255,255,255));
+                setBackground(new Color(197,76,89));
                 over = true;
             }
 
             @Override
             public void mouseExited(MouseEvent me) 
             {
-                setBackground(new Color(9,166,254));
+                setBackground(new Color(34,63,135));
                 over = false;
             }
 
@@ -97,11 +97,11 @@ public final class MyButton extends JButton {
             {
                 if (over) 
                 {
-                    setBackground(new Color(255,255,255));
+                    setBackground(new Color(197,76,89));
                 } 
                 else 
                 {
-                    setBackground(new Color(9,166,254));
+                    setBackground(new Color(197,76,89));
                 }
             }
         });

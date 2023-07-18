@@ -51,6 +51,7 @@ public class MainForm extends javax.swing.JFrame {
             }
             
         });
+        AddClassButton.setBackground(new Color(34,63,135));
     }
 
     @SuppressWarnings("unchecked")
@@ -83,14 +84,17 @@ public class MainForm extends javax.swing.JFrame {
         HeaderLabel = new javax.swing.JLabel();
         AddClassPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         SaveClassInfoButton = new pkgclass.record.MyButton();
         ClassNameTextBox = new pkgclass.record.FTextField();
         ClassCodeTextBox = new pkgclass.record.FTextField();
         ClassInstructorTextBox = new pkgclass.record.FTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         AddStudentPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -98,16 +102,18 @@ public class MainForm extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         AddButton = new pkgclass.record.MyButton();
         StudentFNameTextBox = new pkgclass.record.FTextField();
         StudentLNameTextBox = new pkgclass.record.FTextField();
         StudentMInitialTextBox = new pkgclass.record.FTextField();
         StudentGradeTextBox = new pkgclass.record.FTextField();
         StudentAbsentTextBox = new pkgclass.record.FTextField();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
 
         jScrollPane3.setViewportView(jTree1);
 
@@ -118,7 +124,7 @@ public class MainForm extends javax.swing.JFrame {
         TopParent.setBackground(new java.awt.Color(0, 0, 0));
         TopParent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SidebarPanel.setBackground(new java.awt.Color(230, 232, 240));
+        SidebarPanel.setBackground(new java.awt.Color(199, 203, 216));
         SidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Top_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Picture1.png"))); // NOI18N
@@ -137,6 +143,8 @@ public class MainForm extends javax.swing.JFrame {
         TeachersNameLabel.setText("USER");
         SidebarPanel.add(TeachersNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 50, 30));
 
+        AddClassButton.setBackground(new java.awt.Color(34, 63, 135));
+        AddClassButton.setForeground(new java.awt.Color(255, 255, 255));
         AddClassButton.setText("Add class");
         AddClassButton.setBorderPainted(false);
         AddClassButton.setColor(new java.awt.Color(9, 166, 254));
@@ -163,7 +171,7 @@ public class MainForm extends javax.swing.JFrame {
 
         SidebarPanel.add(ScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 170, 300));
 
-        LogoutButton.setBackground(new java.awt.Color(230, 232, 240));
+        LogoutButton.setBackground(new java.awt.Color(199, 203, 216));
         LogoutButton.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         LogoutButton.setForeground(new java.awt.Color(0, 0, 0));
         LogoutButton.setText("Logout");
@@ -183,6 +191,8 @@ public class MainForm extends javax.swing.JFrame {
         HomePanel.setBackground(new java.awt.Color(255, 255, 255));
         HomePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        AddStudentButton.setBackground(new java.awt.Color(34, 63, 135));
+        AddStudentButton.setForeground(new java.awt.Color(255, 255, 255));
         AddStudentButton.setText("Add Student");
         AddStudentButton.setBorderPainted(false);
         AddStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -198,6 +208,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabel8.setToolTipText("");
         HomePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 40, 40));
 
+        SaveStudInfoButton.setBackground(new java.awt.Color(34, 63, 135));
+        SaveStudInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         SaveStudInfoButton.setText("Save");
         SaveStudInfoButton.setBorderPainted(false);
         SaveStudInfoButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -209,6 +221,8 @@ public class MainForm extends javax.swing.JFrame {
         });
         HomePanel.add(SaveStudInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 80, 40));
 
+        DeleteClassButton.setBackground(new java.awt.Color(34, 63, 135));
+        DeleteClassButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteClassButton.setText("Delete Class");
         DeleteClassButton.setBorderPainted(false);
         DeleteClassButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -220,6 +234,8 @@ public class MainForm extends javax.swing.JFrame {
         });
         HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 510, 130, 40));
 
+        DeleteStudentButton.setBackground(new java.awt.Color(34, 63, 135));
+        DeleteStudentButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteStudentButton.setText("Remove Student");
         DeleteStudentButton.setBorderPainted(false);
         DeleteStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -294,11 +310,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel2.setText("Enter class name");
         AddClassPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 150, 30));
 
-        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Enter class code");
-        AddClassPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 30));
-
+        SaveClassInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         SaveClassInfoButton.setText("Save");
         SaveClassInfoButton.setBorderColor(new java.awt.Color(0, 0, 0));
         SaveClassInfoButton.setBorderPainted(false);
@@ -310,33 +322,51 @@ public class MainForm extends javax.swing.JFrame {
                 SaveClassInfoButtonActionPerformed(evt);
             }
         });
-        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, 40));
+        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, 40));
 
         ClassNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ClassNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddClassPanel.add(ClassNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 210, 40));
+        AddClassPanel.add(ClassNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 40));
 
         ClassCodeTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ClassCodeTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddClassPanel.add(ClassCodeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 210, 40));
+        AddClassPanel.add(ClassCodeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 40));
 
         ClassInstructorTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ClassInstructorTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddClassPanel.add(ClassInstructorTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 210, 40));
+        AddClassPanel.add(ClassInstructorTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 220, 40));
 
-        jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Class Information");
-        AddClassPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 190, 50));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Enter class instructor");
-        AddClassPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 30));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/subheader_image@2x.png"))); // NOI18N
-        AddClassPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 30, 690, 500));
+        AddClassPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 180, 30));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Enter class code");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        AddClassPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 150, 30));
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Class Information");
+        AddClassPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 190, 40));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/file.png"))); // NOI18N
+        AddClassPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 50, 50));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/ClassInfoBackground.jpg"))); // NOI18N
+        AddClassPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 600));
 
         Parent.add(AddClassPanel, "card3");
 
@@ -346,34 +376,38 @@ public class MainForm extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Student Information");
-        AddStudentPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, 40));
+        AddStudentPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, -1, 40));
 
         jLabel10.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Firstname");
-        AddStudentPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, 30));
+        AddStudentPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 30));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Grade");
-        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, 30));
+        AddStudentPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("No. of Absents");
-        AddStudentPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, 30));
+        AddStudentPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, 30));
 
         jLabel14.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Middle Name");
-        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 30));
+        AddStudentPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 30));
 
         jLabel15.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Lastname");
-        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, 30));
+        AddStudentPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Student_Info_Icon_(50x50).png"))); // NOI18N
+        AddStudentPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 50, 40));
+
+        AddButton.setForeground(new java.awt.Color(255, 255, 255));
         AddButton.setText("Add");
         AddButton.setBorderColor(new java.awt.Color(0, 0, 0));
         AddButton.setBorderPainted(false);
@@ -389,49 +423,52 @@ public class MainForm extends javax.swing.JFrame {
 
         StudentFNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentFNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 220, 40));
+        AddStudentPanel.add(StudentFNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 40));
 
         StudentLNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentLNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 220, 40));
+        AddStudentPanel.add(StudentLNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 220, 40));
 
         StudentMInitialTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentMInitialTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 40));
+        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 40));
 
         StudentGradeTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentGradeTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 70, 40));
+        AddStudentPanel.add(StudentGradeTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 70, 40));
 
         StudentAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 140, 40));
+        AddStudentPanel.add(StudentAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 140, 40));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Bubbles2.png"))); // NOI18N
-        AddStudentPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 600));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/StudentInfoBackground.jpg"))); // NOI18N
+        AddStudentPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 600));
 
         Parent.add(AddStudentPanel, "card4");
 
         TopParent.add(Parent, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 630, 600));
 
-        HeaderPanel.setBackground(new java.awt.Color(225, 230, 253));
+        HeaderPanel.setBackground(new java.awt.Color(109, 116, 151));
         HeaderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(249, 113, 98));
-        jLabel17.setText("record");
-        HeaderPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, 50));
+        jLabel17.setText("Record");
+        HeaderPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, 50));
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(139, 116, 214));
-        jLabel16.setText("Class");
-        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 110, 50));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("M-Class");
+        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 160, 50));
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
+        HeaderPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 100, 90));
 
         TopParent.add(HeaderPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 620, 90));
 
         getContentPane().add(TopParent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 690));
 
-        setSize(new java.awt.Dimension(887, 693));
+        setSize(new java.awt.Dimension(883, 693));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -553,7 +590,7 @@ public class MainForm extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Please enter a valid number format!");
             }
-            else if(Grade > 5.00 || Grade < 0.00)
+            else if(Grade < 0.00 || Grade > 100.00)
             {
                 JOptionPane.showMessageDialog(null,"Please enter a valid number format for grade!");
             }
@@ -831,8 +868,8 @@ public class MainForm extends javax.swing.JFrame {
         for(String str: ListOfFile)
         {
             MyButton textButton = new MyButton();
-            textButton.setForeground(Color.black);
-            textButton.setBackground(new Color(9,166,254));
+            textButton.setForeground(new Color(255,255,255));
+            textButton.setBackground(new Color(34,63,135));
             textButton.setOpaque(true);
             textButton.setFont(new Font("Rockwell", 1, 18));
             textButton.setRadius(30);
@@ -966,6 +1003,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel TopParent;
     private javax.swing.JLabel Top_Icon;
     private javax.swing.JLabel WelcomeBackLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -974,14 +1012,18 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;

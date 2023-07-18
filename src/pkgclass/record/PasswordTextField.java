@@ -15,7 +15,7 @@ public class PasswordTextField extends JPasswordField{
        
     public PasswordTextField() {
         fillColor = new Color(236, 240, 241);
-        lineColor = new Color(52, 152, 219);
+        lineColor = new Color(34,63,135);
         strokeWidth = 2;
         setOpaque(false);
         setBorder(BorderFactory.createEmptyBorder(2, 10, 2, 10));

@@ -41,7 +41,6 @@ public class LoginForm extends javax.swing.JFrame
         ForgotPasswordButton = new javax.swing.JButton();
         PasswordTextBox = new pkgclass.record.PasswordTextField();
         CreateAccountPanel = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -57,8 +56,8 @@ public class LoginForm extends javax.swing.JFrame
         CreateAccountButton1 = new pkgclass.record.MyButton();
         PasswordTextBox1 = new pkgclass.record.PasswordTextField();
         RecoveryKeyTextBox = new pkgclass.record.PasswordTextField();
+        jLabel32 = new javax.swing.JLabel();
         RecoveryPanel = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -74,6 +73,7 @@ public class LoginForm extends javax.swing.JFrame
         NewPassword = new pkgclass.record.PasswordTextField();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -89,17 +89,17 @@ public class LoginForm extends javax.swing.JFrame
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(139, 116, 214));
-        jLabel9.setText("Class");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 40));
+        jLabel9.setForeground(new java.awt.Color(34, 63, 135));
+        jLabel9.setText("M-Class");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 40));
 
         jLabel10.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(249, 113, 98));
-        jLabel10.setText("record");
+        jLabel10.setForeground(new java.awt.Color(197, 76, 89));
+        jLabel10.setText("Record");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, 40));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/knowledge.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 260, 260));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/WelcomeBackground.jpg"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 540, -1));
 
         BackgroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 650));
 
@@ -109,20 +109,21 @@ public class LoginForm extends javax.swing.JFrame
         LoginPanel.setBackground(new java.awt.Color(255, 255, 255));
         LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(32, 122, 202));
+        jLabel1.setBackground(new java.awt.Color(34, 63, 135));
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(32, 122, 202));
+        jLabel1.setForeground(new java.awt.Color(34, 63, 135));
         jLabel1.setText("Welcome back!");
         LoginPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 260, 53));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Icon 1 (1).png"))); // NOI18N
-        LoginPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 100));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
+        LoginPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 51));
+        jLabel3.setForeground(new java.awt.Color(197, 76, 89));
         jLabel3.setText("Nice seeing you again");
         LoginPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, 30));
 
+        LoginButton.setForeground(new java.awt.Color(255, 255, 255));
         LoginButton.setText("Login");
         LoginButton.setBorderPainted(false);
         LoginButton.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -160,6 +161,7 @@ public class LoginForm extends javax.swing.JFrame
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/lock.png"))); // NOI18N
         LoginPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 40));
 
+        CreateAccountButton.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountButton.setText("Create Account");
         CreateAccountButton.setBorderPainted(false);
         CreateAccountButton.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -185,15 +187,12 @@ public class LoginForm extends javax.swing.JFrame
 
         PasswordTextBox.setForeground(new java.awt.Color(0, 0, 0));
         PasswordTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        LoginPanel.add(PasswordTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 240, 40));
+        LoginPanel.add(PasswordTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 230, 40));
 
         ParentPanelOfSidePanel.add(LoginPanel, "card2");
 
         CreateAccountPanel.setBackground(new java.awt.Color(255, 255, 255));
         CreateAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Icon 1 (1).png"))); // NOI18N
-        CreateAccountPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 100));
 
         jLabel13.setBackground(new java.awt.Color(32, 122, 202));
         jLabel13.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
@@ -240,6 +239,7 @@ public class LoginForm extends javax.swing.JFrame
         jLabel21.setText("Password");
         CreateAccountPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 90, 30));
 
+        LoginButton1.setForeground(new java.awt.Color(255, 255, 255));
         LoginButton1.setText("Login");
         LoginButton1.setBorderPainted(false);
         LoginButton1.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -251,6 +251,7 @@ public class LoginForm extends javax.swing.JFrame
         });
         CreateAccountPanel.add(LoginButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, 40));
 
+        CreateAccountButton1.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountButton1.setText("Create Account");
         CreateAccountButton1.setBorderPainted(false);
         CreateAccountButton1.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -270,13 +271,13 @@ public class LoginForm extends javax.swing.JFrame
         RecoveryKeyTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         CreateAccountPanel.add(RecoveryKeyTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 240, 40));
 
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
+        CreateAccountPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
+
         ParentPanelOfSidePanel.add(CreateAccountPanel, "card3");
 
         RecoveryPanel.setBackground(new java.awt.Color(255, 255, 255));
         RecoveryPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Icon 1 (1).png"))); // NOI18N
-        RecoveryPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 100));
 
         jLabel23.setBackground(new java.awt.Color(32, 122, 202));
         jLabel23.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
@@ -319,6 +320,7 @@ public class LoginForm extends javax.swing.JFrame
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/secret.png"))); // NOI18N
         RecoveryPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 40));
 
+        RecoverButton.setForeground(new java.awt.Color(255, 255, 255));
         RecoverButton.setText("Recover");
         RecoverButton.setBorderPainted(false);
         RecoverButton.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -353,6 +355,9 @@ public class LoginForm extends javax.swing.JFrame
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/lock.png"))); // NOI18N
         RecoveryPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, 40));
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
+        RecoveryPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
 
         ParentPanelOfSidePanel.add(RecoveryPanel, "card4");
 
@@ -689,7 +694,6 @@ public class LoginForm extends javax.swing.JFrame
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -700,7 +704,6 @@ public class LoginForm extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -711,6 +714,8 @@ public class LoginForm extends javax.swing.JFrame
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
