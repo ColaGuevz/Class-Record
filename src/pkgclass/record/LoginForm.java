@@ -411,7 +411,7 @@ public class LoginForm extends javax.swing.JFrame
                 
                 if(usernameFromFile.equals(username) && passwordFromFile.equals(password))
                 {
-                    new MainForm().setVisible(true);
+                    new MainForm(UsernameTextBox.getText()).setVisible(true);
                     setVisible(false);
                     
                     UsernameTextBox.setText(null);

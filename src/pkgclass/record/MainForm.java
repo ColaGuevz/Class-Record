@@ -20,10 +20,12 @@ public class MainForm extends javax.swing.JFrame {
     boolean mouseClicked = false;
 
     private int selectedRowForDeletion = -1;
+    private String Foldername = null;
 
-    public MainForm() 
+    public MainForm(String folderName) 
     {
         initComponents();
+        this.Foldername = folderName;
         StudentTable.setGridColor(Color.BLACK);
         theader();
 
@@ -485,7 +487,7 @@ public class MainForm extends javax.swing.JFrame {
         else
         {
             String classCode = ClassCodeTextBox.getText();                                      //getting class code for the name of the file
-            String databaseDir = homeDir + File.separator + "ClassRecordDatabase";                     //concatinating home dirctory with the name Database
+            String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;                     //concatinating home dirctory with the name Database
             String filePath = databaseDir + File.separator + "\\" + classCode +".txt";  //making a string filepath for the file
             
             File file = new File(filePath);                                                                        //making a string filepath for the file
@@ -684,7 +686,7 @@ public class MainForm extends javax.swing.JFrame {
                     MyButton button = (MyButton) component;
                     if(button.getText().equals(HeaderLabel.getText()))
                     {
-                        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";                    
+                        String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;                    
                         String filePath = databaseDir + File.separator + "\\" + HeaderLabel.getText() +".txt";
                         File file = new File(filePath); 
                         
@@ -708,7 +710,7 @@ public class MainForm extends javax.swing.JFrame {
     private ArrayList <String> getListOfFiles()
     {
         ArrayList <String> listOfFile = new ArrayList<String>();
-        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;
         File folder = new File(databaseDir);   
         
         if(!folder.exists())
@@ -732,7 +734,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private ArrayList <Student> readFile(String filename)
     {
-        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         String demarcation = ",";
@@ -797,7 +799,7 @@ public class MainForm extends javax.swing.JFrame {
     private int writeToFile(ArrayList <Student> stud, String filename)
     {
         int isFileCreated = 1;
-        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         try
@@ -820,7 +822,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void deleteFromFile(String filename)
     {
-        String databaseDir = homeDir + File.separator + "ClassRecordDatabase";
+        String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;
         String filePath = databaseDir + File.separator + "\\" + filename + ".txt";
         File file = new File(filePath);
         try (FileWriter fileWriter = new FileWriter(file, false)) 
@@ -965,13 +967,6 @@ public class MainForm extends javax.swing.JFrame {
         model.removeRow(rowIndex);
     }
     
-    public static void main(String args[]) 
-    {
-        java.awt.EventQueue.invokeLater(() -> {
-            new MainForm().setVisible(true);
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private pkgclass.record.MyButton AddButton;
     private pkgclass.record.MyButton AddClassButton;
