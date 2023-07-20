@@ -99,9 +99,9 @@ public class LoginForm extends javax.swing.JFrame
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, -1, 40));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/WelcomeBackground.jpg"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 540, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 580, -1));
 
-        BackgroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 650));
+        BackgroundPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 650));
 
         ParentPanelOfSidePanel.setBackground(new java.awt.Color(255, 255, 255));
         ParentPanelOfSidePanel.setLayout(new java.awt.CardLayout());
@@ -143,7 +143,7 @@ public class LoginForm extends javax.swing.JFrame
 
         UsernameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         UsernameTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        LoginPanel.add(UsernameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 230, 40));
+        LoginPanel.add(UsernameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 250, 40));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -187,7 +187,7 @@ public class LoginForm extends javax.swing.JFrame
 
         PasswordTextBox.setForeground(new java.awt.Color(0, 0, 0));
         PasswordTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        LoginPanel.add(PasswordTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 230, 40));
+        LoginPanel.add(PasswordTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 250, 40));
 
         ParentPanelOfSidePanel.add(LoginPanel, "card2");
 
@@ -218,7 +218,7 @@ public class LoginForm extends javax.swing.JFrame
 
         UsernameTextBox1.setForeground(new java.awt.Color(0, 0, 0));
         UsernameTextBox1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        CreateAccountPanel.add(UsernameTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 230, 40));
+        CreateAccountPanel.add(UsernameTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 250, 40));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/user (1).png"))); // NOI18N
         CreateAccountPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 40));
@@ -265,11 +265,11 @@ public class LoginForm extends javax.swing.JFrame
 
         PasswordTextBox1.setForeground(new java.awt.Color(0, 0, 0));
         PasswordTextBox1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        CreateAccountPanel.add(PasswordTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 240, 40));
+        CreateAccountPanel.add(PasswordTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 250, 40));
 
         RecoveryKeyTextBox.setForeground(new java.awt.Color(0, 0, 0));
         RecoveryKeyTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        CreateAccountPanel.add(RecoveryKeyTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 240, 40));
+        CreateAccountPanel.add(RecoveryKeyTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 250, 40));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
         CreateAccountPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
@@ -303,7 +303,7 @@ public class LoginForm extends javax.swing.JFrame
 
         UsernameTextBox2.setForeground(new java.awt.Color(0, 0, 0));
         UsernameTextBox2.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        RecoveryPanel.add(UsernameTextBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 230, 40));
+        RecoveryPanel.add(UsernameTextBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 250, 40));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/user (1).png"))); // NOI18N
         RecoveryPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 40));
@@ -315,7 +315,7 @@ public class LoginForm extends javax.swing.JFrame
 
         RecoveryKeyTextBox1.setForeground(new java.awt.Color(0, 0, 0));
         RecoveryKeyTextBox1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        RecoveryPanel.add(RecoveryKeyTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 240, 40));
+        RecoveryPanel.add(RecoveryKeyTextBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 250, 40));
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/secret.png"))); // NOI18N
         RecoveryPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 40));
@@ -346,7 +346,7 @@ public class LoginForm extends javax.swing.JFrame
 
         NewPassword.setForeground(new java.awt.Color(0, 0, 0));
         NewPassword.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        RecoveryPanel.add(NewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 240, 40));
+        RecoveryPanel.add(NewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 250, 40));
 
         jLabel30.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
@@ -361,11 +361,11 @@ public class LoginForm extends javax.swing.JFrame
 
         ParentPanelOfSidePanel.add(RecoveryPanel, "card4");
 
-        BackgroundPanel.add(ParentPanelOfSidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 410, 650));
+        BackgroundPanel.add(ParentPanelOfSidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 430, 650));
 
-        getContentPane().add(BackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 650));
+        getContentPane().add(BackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 650));
 
-        setSize(new java.awt.Dimension(893, 652));
+        setSize(new java.awt.Dimension(965, 652));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -414,8 +414,8 @@ public class LoginForm extends javax.swing.JFrame
                     new MainForm(UsernameTextBox.getText()).setVisible(true);
                     setVisible(false);
                     
-                    UsernameTextBox.setText(null);
-                    PasswordTextBox.setText(null);
+                    UsernameTextBox.setText("");
+                    PasswordTextBox.setText("");
                     
                     recovery = null;
                     usernameFromFile = null;
@@ -460,9 +460,9 @@ public class LoginForm extends javax.swing.JFrame
                 {
                     JOptionPane.showMessageDialog(null, "Account successfully created!");
 
-                    UsernameTextBox1.setText(null);
-                    PasswordTextBox1.setText(null);
-                    RecoveryKeyTextBox.setText(null);
+                    UsernameTextBox1.setText("");
+                    PasswordTextBox1.setText("");
+                    RecoveryKeyTextBox.setText("");
 
                     ParentPanelOfSidePanel.removeAll();
                     ParentPanelOfSidePanel.add(LoginPanel);
@@ -540,9 +540,9 @@ public class LoginForm extends javax.swing.JFrame
                     usernameFromFile = null;
                     passwordFromFile = null;
                     
-                    UsernameTextBox2.setText(null);
-                    NewPassword.setText(null);
-                    RecoveryKeyTextBox1.setText(null);
+                    UsernameTextBox2.setText("");
+                    NewPassword.setText("");
+                    RecoveryKeyTextBox1.setText("");
                     
                     JOptionPane.showMessageDialog(null,"Successfully recovered account!");
                     
@@ -560,9 +560,9 @@ public class LoginForm extends javax.swing.JFrame
     }//GEN-LAST:event_RecoverButtonActionPerformed
 
     private void BackToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToLoginActionPerformed
-        UsernameTextBox2.setText(null);
-        RecoveryKeyTextBox1.setText(null);
-        NewPassword.setText(null);
+        UsernameTextBox2.setText("");
+        RecoveryKeyTextBox1.setText("");
+        NewPassword.setText("");
         
         ParentPanelOfSidePanel.removeAll();
         ParentPanelOfSidePanel.add(LoginPanel);
