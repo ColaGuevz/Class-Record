@@ -21,6 +21,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private int selectedRowForDeletion = -1;
     private String Foldername = null;
+    
+    boolean hasSaved = true;
 
     public MainForm(String folderName) 
     {
@@ -53,6 +55,25 @@ public class MainForm extends javax.swing.JFrame {
             }
             
         });
+        
+        StudentTable.getColumnModel().getColumn(0).setPreferredWidth(50);
+        StudentTable.getColumnModel().getColumn(1).setPreferredWidth(150);
+        StudentTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+        StudentTable.getColumnModel().getColumn(3).setPreferredWidth(200);
+        StudentTable.getColumnModel().getColumn(4).setPreferredWidth(200);
+        StudentTable.getColumnModel().getColumn(5).setPreferredWidth(200);
+        StudentTable.getColumnModel().getColumn(6).setPreferredWidth(150);
+        
+        StudentTable.getColumnModel().getColumn(7).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(8).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(9).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(10).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(11).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(12).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(13).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(14).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(15).setPreferredWidth(180);
+        
         AddClassButton.setBackground(new Color(34,63,135));
         TeachersNameLabel.setText(folderName);
     }
@@ -201,7 +222,7 @@ public class MainForm extends javax.swing.JFrame {
         AddClassButton.setForeground(new java.awt.Color(255, 255, 255));
         AddClassButton.setText("Add class");
         AddClassButton.setBorderPainted(false);
-        AddClassButton.setColor(new java.awt.Color(9, 166, 254));
+        AddClassButton.setColor(new java.awt.Color(34, 63, 135));
         AddClassButton.setColorClick(java.awt.SystemColor.activeCaption);
         AddClassButton.setColorOver(java.awt.SystemColor.activeCaption);
         AddClassButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -322,7 +343,7 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No.", "Student ID", "Last Name", "First Name", "Middle Initial", "Contact No.", "Sex", "1st Quarter", "2nd Quarter", "3rd Quarter", "4th Quarter", "Final Grade", "1st Quarter Absent", "2nd Quarter Absent", "3rd Quarter Absent", "4th Quarter Absent"
+                "No.", "Student ID", "Last Name", "First Name", "Middle Initial", "Contact No.", "Sex", "1st Quarter Grade", "2nd Quarter Grade", "3rd Quarter Grade", "4th Quarter Grade", "Final Grade", "1st Quarter Absent", "2nd Quarter Absent", "3rd Quarter Absent", "4th Quarter Absent"
             }
         ) {
             Class[] types = new Class [] {
@@ -340,6 +361,7 @@ public class MainForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        StudentTable.setAutoResizeMode(0);
         StudentTable.setGridColor(new java.awt.Color(0, 0, 0));
         StudentTable.setRowHeight(30);
         StudentTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -347,22 +369,7 @@ public class MainForm extends javax.swing.JFrame {
         StudentTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(StudentTable);
         if (StudentTable.getColumnModel().getColumnCount() > 0) {
-            StudentTable.getColumnModel().getColumn(0).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(1).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(2).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(3).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(4).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(5).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(6).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(7).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(8).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(9).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(10).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(11).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(12).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(13).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(14).setPreferredWidth(1);
-            StudentTable.getColumnModel().getColumn(15).setPreferredWidth(1);
+            StudentTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
         HomePanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 680, 420));
@@ -592,7 +599,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel24.setText("Contact Information");
         jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
-        AddStudentPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 150, 30));
+        AddStudentPanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 170, 30));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -724,7 +731,7 @@ public class MainForm extends javax.swing.JFrame {
         SaveClassInfoChangeButton.setText("Save");
         SaveClassInfoChangeButton.setBorderColor(new java.awt.Color(0, 0, 0));
         SaveClassInfoChangeButton.setBorderPainted(false);
-        SaveClassInfoChangeButton.setColor(new java.awt.Color(9, 166, 254));
+        SaveClassInfoChangeButton.setColor(new java.awt.Color(34, 63, 135));
         SaveClassInfoChangeButton.setColorClick(java.awt.SystemColor.activeCaption);
         SaveClassInfoChangeButton.setColorOver(java.awt.SystemColor.activeCaption);
         SaveClassInfoChangeButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -741,7 +748,7 @@ public class MainForm extends javax.swing.JFrame {
         EditClassInfoButton.setText("Edit");
         EditClassInfoButton.setBorderColor(new java.awt.Color(0, 0, 0));
         EditClassInfoButton.setBorderPainted(false);
-        EditClassInfoButton.setColor(new java.awt.Color(9, 166, 254));
+        EditClassInfoButton.setColor(new java.awt.Color(34, 63, 135));
         EditClassInfoButton.setColorClick(java.awt.SystemColor.activeCaption);
         EditClassInfoButton.setColorOver(java.awt.SystemColor.activeCaption);
         EditClassInfoButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -902,6 +909,10 @@ public class MainForm extends javax.swing.JFrame {
         if(HeaderLabel.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Kindly choose a class first!");
+        }
+        else if(!hasSaved)
+        {
+            JOptionPane.showMessageDialog(null, "Kindly save your work please!");
         }
         else
         {
@@ -1077,9 +1088,9 @@ public class MainForm extends javax.swing.JFrame {
                 GenderTextBox.setText("");
                 ContactNumberTextBox.setText("");
                 FirstQuarterGradeTextBox.setText("");
-                SecondQuarterAbsentTextBox.setText("");
-                ThirdQuarterAbsentTextBox.setText("");
-                FourthQuarterAbsentTextBox.setText("");
+                SecondQuarterGradeTextBox.setText("");
+                ThirdQuarterGradeTextBox.setText("");
+                FourthQuarterGradeTextBox.setText("");
                 FirstQuarterAbsentTextBox.setText("");
                 SecondQuarterAbsentTextBox.setText("");
                 ThirdQuarterAbsentTextBox.setText("");
@@ -1115,7 +1126,7 @@ public class MainForm extends javax.swing.JFrame {
                 isFourthQuarterAbsentValid = true;
 
                 
-                
+                hasSaved = false;
                 JOptionPane.showMessageDialog(null, "Succesfully added student to the class " + HeaderLabel.getText() + ".");
                 
                 Parent.removeAll();
@@ -1127,10 +1138,17 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void AddClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddClassButtonActionPerformed
-        Parent.removeAll();
-        Parent.add(AddClassPanel);
-        Parent.repaint();
-        Parent.revalidate();
+        if(!hasSaved)
+        {
+            JOptionPane.showMessageDialog(null, "Kindly save your work first!");
+        }
+        else
+        {
+            Parent.removeAll();
+            Parent.add(AddClassPanel);
+            Parent.repaint();
+            Parent.revalidate();
+        }
     }//GEN-LAST:event_AddClassButtonActionPerformed
 
     private void DeleteStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteStudentButtonActionPerformed
@@ -1143,6 +1161,7 @@ public class MainForm extends javax.swing.JFrame {
             populateTable(st);
             st.clear();
             selectedRowForDeletion = -1;
+           hasSaved = false;
             JOptionPane.showMessageDialog(null,"Succesfully deleted student from the list!");
         }
         else
@@ -1163,6 +1182,7 @@ public class MainForm extends javax.swing.JFrame {
             populateTable(st);
             writeToFile(st, filename);
             st.clear();
+            hasSaved = true;
             JOptionPane.showMessageDialog(null,"Succesfully saved!");
         }
     }//GEN-LAST:event_SaveStudInfoButtonActionPerformed
@@ -1208,14 +1228,25 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteClassButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        new LoginForm().setVisible(true);
-        setVisible(false);
+        if(!hasSaved)
+        {
+            JOptionPane.showMessageDialog(null, "Kindly save your work first!");
+        }
+        else
+        {
+            new LoginForm().setVisible(true);
+            setVisible(false);
+        }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ViewClassInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewClassInformationButtonActionPerformed
         if(HeaderLabel.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Kindly choose class first!");
+        }
+        else if(!hasSaved)
+        {
+            JOptionPane.showMessageDialog(null, "Kindly save your work first!");
         }
         else
         {
@@ -1593,7 +1624,7 @@ public class MainForm extends javax.swing.JFrame {
         JTableHeader thead = StudentTable.getTableHeader();
         thead.setForeground(new Color(0,0,0));
         thead.setBackground(new Color(230,232,240));
-        thead.setFont(new Font("Verdana", Font.BOLD, 14));
+        thead.setFont(new Font("Rockwell", Font.BOLD, 14));
         thead.setOpaque(true);
         thead.getColumnModel().setColumnMargin(30);
         thead.setPreferredSize(new Dimension(100, 30));
@@ -1620,7 +1651,6 @@ public class MainForm extends javax.swing.JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) 
                 {
-                    HeaderLabel.setText(str);
                     Parent.removeAll();
                     Parent.add(HomePanel);
                     Parent.repaint();
@@ -1629,12 +1659,20 @@ public class MainForm extends javax.swing.JFrame {
                     
                     if(mouseClicked)
                     {
-                        ArrayList <Student> students = new ArrayList <Student>();
-                        students = readFile(HeaderLabel.getText());
-                        clearTable();
-                        populateTable(students);
-                        students.clear();
-                        mouseClicked = false;
+                        if(!hasSaved)
+                        {
+                            JOptionPane.showMessageDialog(null, "Kindly save your work first!");
+                        }
+                        else
+                        {
+                            HeaderLabel.setText(str);
+                            ArrayList <Student> students = new ArrayList <Student>();
+                            students = readFile(HeaderLabel.getText());
+                            clearTable();
+                            populateTable(students);
+                            students.clear();
+                            mouseClicked = false;
+                        }
                     }
                 }
             });
