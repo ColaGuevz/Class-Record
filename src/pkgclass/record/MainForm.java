@@ -208,8 +208,8 @@ public class MainForm extends javax.swing.JFrame {
         SidebarPanel.setBackground(new java.awt.Color(199, 203, 216));
         SidebarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Top_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/Picture1.png"))); // NOI18N
-        SidebarPanel.add(Top_Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 20, 150, 119));
+        Top_Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/user.png"))); // NOI18N
+        SidebarPanel.add(Top_Icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 150, 140));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         SidebarPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 222, 179, 10));
