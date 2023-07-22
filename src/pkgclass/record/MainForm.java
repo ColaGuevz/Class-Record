@@ -6,6 +6,10 @@ import javax.swing.*;
 import java.util.*;
 import javax.swing.border.*;
 import java.awt.event.*;
+import java.text.MessageFormat;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.TableModelEvent;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -106,6 +110,7 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentTable = new javax.swing.JTable();
         SearchTextBox = new pkgclass.record.SearchText();
+        ExportButton = new pkgclass.record.MyButton();
         AddClassPanel = new javax.swing.JPanel();
         SaveClassInfoButton = new pkgclass.record.MyButton();
         ClassNameTextBox = new pkgclass.record.FTextField();
@@ -224,14 +229,14 @@ public class MainForm extends javax.swing.JFrame {
         AddClassButton.setColor(new java.awt.Color(34, 63, 135));
         AddClassButton.setColorClick(java.awt.SystemColor.activeCaption);
         AddClassButton.setColorOver(java.awt.SystemColor.activeCaption);
-        AddClassButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        AddClassButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         AddClassButton.setRadius(30);
         AddClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddClassButtonActionPerformed(evt);
             }
         });
-        SidebarPanel.add(AddClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 130, 40));
+        SidebarPanel.add(AddClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 550, 120, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/icons8-logout-50 (1).png"))); // NOI18N
         SidebarPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 30, -1));
@@ -268,62 +273,62 @@ public class MainForm extends javax.swing.JFrame {
         AddStudentButton.setForeground(new java.awt.Color(255, 255, 255));
         AddStudentButton.setText("Add Student");
         AddStudentButton.setBorderPainted(false);
-        AddStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        AddStudentButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         AddStudentButton.setRadius(30);
         AddStudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddStudentButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(AddStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 140, 40));
+        HomePanel.add(AddStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 120, 40));
 
         SaveStudInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         SaveStudInfoButton.setText("Save");
         SaveStudInfoButton.setBorderPainted(false);
-        SaveStudInfoButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        SaveStudInfoButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         SaveStudInfoButton.setRadius(30);
         SaveStudInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveStudInfoButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(SaveStudInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 80, 40));
+        HomePanel.add(SaveStudInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, -1, 40));
 
         DeleteClassButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteClassButton.setText("Delete Class");
         DeleteClassButton.setBorderPainted(false);
-        DeleteClassButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        DeleteClassButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         DeleteClassButton.setRadius(30);
         DeleteClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteClassButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 140, 40));
+        HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 140, 40));
 
         DeleteStudentButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteStudentButton.setText("Remove Student");
         DeleteStudentButton.setBorderPainted(false);
-        DeleteStudentButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        DeleteStudentButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         DeleteStudentButton.setRadius(30);
         DeleteStudentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteStudentButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(DeleteStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 510, -1, 40));
+        HomePanel.add(DeleteStudentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, 40));
 
         ViewClassInformationButton.setForeground(new java.awt.Color(255, 255, 255));
         ViewClassInformationButton.setText("Class Information");
         ViewClassInformationButton.setBorderPainted(false);
-        ViewClassInformationButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        ViewClassInformationButton.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         ViewClassInformationButton.setRadius(30);
         ViewClassInformationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewClassInformationButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(ViewClassInformationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 180, 40));
+        HomePanel.add(ViewClassInformationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 180, 40));
 
         StudentTable.setAutoCreateRowSorter(true);
         StudentTable.setBackground(new java.awt.Color(255, 255, 255));
@@ -375,6 +380,18 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         HomePanel.add(SearchTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 250, 40));
+
+        ExportButton.setForeground(new java.awt.Color(255, 255, 255));
+        ExportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/24x24-printer.png"))); // NOI18N
+        ExportButton.setBorderPainted(false);
+        ExportButton.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        ExportButton.setRadius(30);
+        ExportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExportButtonActionPerformed(evt);
+            }
+        });
+        HomePanel.add(ExportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 50, 40));
 
         Parent.add(HomePanel, "card2");
 
@@ -791,12 +808,12 @@ public class MainForm extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(249, 113, 98));
         jLabel17.setText("Record");
-        HeaderPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, 50));
+        HeaderPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 150, 50));
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("M-Class");
-        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 160, 50));
+        HeaderPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 170, 50));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
         HeaderPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, -10, 90, 90));
@@ -1387,6 +1404,30 @@ public class MainForm extends javax.swing.JFrame {
         filter(SearchTextBox.getText());
     }//GEN-LAST:event_SearchTextBoxKeyReleased
 
+    private void ExportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExportButtonActionPerformed
+        if(HeaderLabel.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please choose class first");
+        }
+        else
+        {
+            MessageFormat header = new MessageFormat(HeaderLabel.getText());
+            MessageFormat footer = new MessageFormat(HeaderLabel.getText());
+            try
+            {
+                PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+                set.add(OrientationRequested.LANDSCAPE);
+                StudentTable.print(JTable.PrintMode.FIT_WIDTH, header,footer, true, set, true);
+            }
+            catch(java.awt.print.PrinterException e)
+            {
+                JOptionPane.showMessageDialog(null,"Export failed!");
+            }
+            
+        }
+        
+    }//GEN-LAST:event_ExportButtonActionPerformed
+
     private ArrayList <String> getListOfFiles()
     {
         ArrayList <String> listOfFile = new ArrayList<String>();
@@ -1823,6 +1864,7 @@ public class MainForm extends javax.swing.JFrame {
     private pkgclass.record.MyButton DeleteClassButton;
     private pkgclass.record.MyButton DeleteStudentButton;
     private pkgclass.record.MyButton EditClassInfoButton;
+    private pkgclass.record.MyButton ExportButton;
     private pkgclass.record.FTextField FirstQuarterAbsentTextBox;
     private pkgclass.record.FTextField FirstQuarterGradeTextBox;
     private pkgclass.record.FTextField FourthQuarterAbsentTextBox;
