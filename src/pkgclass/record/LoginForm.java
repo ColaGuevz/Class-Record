@@ -21,6 +21,7 @@ public class LoginForm extends javax.swing.JFrame
         jButton2 = new javax.swing.JButton();
         BackgroundPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -87,6 +88,20 @@ public class LoginForm extends javax.swing.JFrame
 
         jPanel1.setBackground(new java.awt.Color(230, 232, 240));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Contact the developer?");
+        jButton1.setBorder(null);
+        jButton1.setHideActionText(true);
+        jButton1.setOpaque(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 170, 30));
 
         jLabel9.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(34, 63, 135));
@@ -570,6 +585,10 @@ public class LoginForm extends javax.swing.JFrame
         ParentPanelOfSidePanel.revalidate();
     }//GEN-LAST:event_BackToLoginActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Email Address: ryanbuaquina@gmail.com");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -690,6 +709,7 @@ public class LoginForm extends javax.swing.JFrame
     private pkgclass.record.FTextField UsernameTextBox;
     private pkgclass.record.FTextField UsernameTextBox1;
     private pkgclass.record.FTextField UsernameTextBox2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
