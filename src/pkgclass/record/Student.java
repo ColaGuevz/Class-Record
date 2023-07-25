@@ -17,8 +17,11 @@ public class Student
     private int ThirdQuarterAbsent;
     private int FourthQuarterAbsent;
     private String ContactNumber;
+    private String GuardianName;
+    private String GuardianContactNumber;
+    private String SchoolYear;
 
-    public Student(String StudentID, String Lastname, String Firstname, String MiddleInitial, String ContactNumber, String gender, double FirstQuarterGrade, double SecondQuarterGrade, double ThirdQuarterGrade, double FourthQuarterGrade, int FirstQuarterAbsent, int SecondQuarterAbsent, int ThirdQuarterAbsent, int FourthQuarterAbsent) 
+    public Student(String StudentID, String Lastname, String Firstname, String MiddleInitial, String ContactNumber, String gender, double FirstQuarterGrade, double SecondQuarterGrade, double ThirdQuarterGrade, double FourthQuarterGrade, int FirstQuarterAbsent, int SecondQuarterAbsent, int ThirdQuarterAbsent, int FourthQuarterAbsent, String SchoolYear, String GuardianName, String GuardianContactNumber) 
     {
         this.StudentID = StudentID;
         this.Lastname = Lastname;
@@ -35,6 +38,9 @@ public class Student
         this.ThirdQuarterAbsent = ThirdQuarterAbsent;
         this.FourthQuarterAbsent = FourthQuarterAbsent;
         this.ContactNumber = ContactNumber;
+        this.GuardianName = GuardianName;
+        this.GuardianContactNumber = GuardianContactNumber;
+        this.SchoolYear = SchoolYear;
     }    
 
     public String getStudentID() {
@@ -97,5 +103,16 @@ public class Student
         return ContactNumber;
     }
     
+    public String getGuardianName() {
+        return GuardianName;
+    }
+
+    public String getGuardianContactNumber() {
+        return GuardianContactNumber;
+    }
+
+    public String getSchoolYear() {
+        return SchoolYear;
+    }
     
 }

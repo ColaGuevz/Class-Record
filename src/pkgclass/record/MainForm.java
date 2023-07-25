@@ -78,6 +78,9 @@ public class MainForm extends javax.swing.JFrame {
         StudentTable.getColumnModel().getColumn(13).setPreferredWidth(180);
         StudentTable.getColumnModel().getColumn(14).setPreferredWidth(180);
         StudentTable.getColumnModel().getColumn(15).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(16).setPreferredWidth(180);
+        StudentTable.getColumnModel().getColumn(17).setPreferredWidth(250);
+        StudentTable.getColumnModel().getColumn(18).setPreferredWidth(180);
         
         AddClassButton.setBackground(new Color(34,63,135));
         TeachersNameLabel.setText(folderName);
@@ -116,6 +119,9 @@ public class MainForm extends javax.swing.JFrame {
         ClassNameTextBox = new pkgclass.record.FTextField();
         ClassCodeTextBox = new pkgclass.record.FTextField();
         ClassInstructorTextBox = new pkgclass.record.FTextField();
+        ClassScheduleTextBox = new pkgclass.record.FTextField();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
@@ -145,8 +151,6 @@ public class MainForm extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -176,11 +180,15 @@ public class MainForm extends javax.swing.JFrame {
         SecondQuarterAbsentTextBox = new pkgclass.record.FTextField();
         ThirdQuarterAbsentTextBox = new pkgclass.record.FTextField();
         FourthQuarterAbsentTextBox = new pkgclass.record.FTextField();
+        SchoolYearTextBox = new pkgclass.record.FTextField();
+        GuardianNameTextBox = new pkgclass.record.FTextField();
+        GuardianContactInformationTextBox = new pkgclass.record.FTextField();
         StudentInfoBgHolder = new javax.swing.JLabel();
         ViewClassInformationPanel = new javax.swing.JPanel();
         ClassNameHolder = new pkgclass.record.FTextField();
         ClassCodeHolder = new pkgclass.record.FTextField();
         ClassInstructorHolder = new pkgclass.record.FTextField();
+        ClassScheduleHolder = new pkgclass.record.FTextField();
         SaveClassInfoChangeButton = new pkgclass.record.MyButton();
         EditClassInfoButton = new pkgclass.record.MyButton();
         jLabel6 = new javax.swing.JLabel();
@@ -188,6 +196,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         ViewClassInfoBgHolder = new javax.swing.JLabel();
         HeaderPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -339,14 +348,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "No.", "Student ID", "Last Name", "First Name", "Middle Initial", "Contact No.", "Sex", "1st Quarter Grade", "2nd Quarter Grade", "3rd Quarter Grade", "4th Quarter Grade", "Final Grade", "1st Quarter Absent", "2nd Quarter Absent", "3rd Quarter Absent", "4th Quarter Absent"
+                "No.", "Student ID", "Last Name", "First Name", "Middle Initial", "Contact No.", "Sex", "1st Quarter Grade", "2nd Quarter Grade", "3rd Quarter Grade", "4th Quarter Grade", "Final Grade", "1st Quarter Absent", "2nd Quarter Absent", "3rd Quarter Absent", "4th Quarter Absent", "School Year", "Guardian Name", "Guardian Contact Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
+                false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -410,7 +419,7 @@ public class MainForm extends javax.swing.JFrame {
                 SaveClassInfoButtonActionPerformed(evt);
             }
         });
-        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, 40));
+        AddClassPanel.add(SaveClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, -1, 40));
 
         ClassNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ClassNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -423,6 +432,20 @@ public class MainForm extends javax.swing.JFrame {
         ClassInstructorTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ClassInstructorTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         AddClassPanel.add(ClassInstructorTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 220, 40));
+
+        ClassScheduleTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        ClassScheduleTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddClassPanel.add(ClassScheduleTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 220, 40));
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Enter class schedule");
+        jPanel17.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+
+        AddClassPanel.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 180, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -482,27 +505,27 @@ public class MainForm extends javax.swing.JFrame {
         jLabel19.setText("Sex");
         jPanel14.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
-        AddStudentPanel.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 70, 30));
+        AddStudentPanel.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 70, 30));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel31.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel31.setText("1st Quarter:");
-        jPanel15.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+        jLabel31.setText("School year");
+        jPanel15.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 30));
 
-        AddStudentPanel.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 110, 40));
+        AddStudentPanel.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, 30));
 
         jPanel29.setBackground(new java.awt.Color(255, 255, 255));
         jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel20.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("No. of Absents by Quarter");
+        jLabel20.setText("Absents");
         jPanel29.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
 
-        AddStudentPanel.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 220, 40));
+        AddStudentPanel.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 70, 40));
 
         jPanel28.setBackground(new java.awt.Color(255, 255, 255));
         jPanel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -564,35 +587,25 @@ public class MainForm extends javax.swing.JFrame {
 
         AddStudentPanel.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 110, 40));
 
-        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel34.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel34.setText("4th Quarter:");
-        jPanel17.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
-
-        AddStudentPanel.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, 110, 40));
-
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel32.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel32.setText("3rd Quarter:");
-        jPanel16.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
+        jLabel32.setText("Guardian Contact Information");
+        jPanel16.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 40));
 
-        AddStudentPanel.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 110, 40));
+        AddStudentPanel.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 250, 40));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel29.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel29.setText("2nd Quarter:");
-        jPanel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 40));
+        jLabel29.setText("Guardian Name");
+        jPanel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
 
-        AddStudentPanel.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 110, 40));
+        AddStudentPanel.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 150, 40));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -600,10 +613,10 @@ public class MainForm extends javax.swing.JFrame {
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Grades by Quarter");
+        jLabel11.setText("Grade");
         jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
 
-        AddStudentPanel.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 160, 40));
+        AddStudentPanel.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 60, 40));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -657,7 +670,7 @@ public class MainForm extends javax.swing.JFrame {
                 AddButtonActionPerformed(evt);
             }
         });
-        AddStudentPanel.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 470, -1, 40));
+        AddStudentPanel.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, -1, 40));
 
         StudentFNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentFNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -669,7 +682,7 @@ public class MainForm extends javax.swing.JFrame {
 
         StudentMInitialTextBox.setForeground(new java.awt.Color(0, 0, 0));
         StudentMInitialTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 190, 40));
+        AddStudentPanel.add(StudentMInitialTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 210, 40));
 
         IdNumberTextBox.setForeground(new java.awt.Color(0, 0, 0));
         IdNumberTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -677,11 +690,11 @@ public class MainForm extends javax.swing.JFrame {
 
         GenderTextBox.setForeground(new java.awt.Color(0, 0, 0));
         GenderTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(GenderTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 90, 40));
+        AddStudentPanel.add(GenderTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 90, 40));
 
         ContactNumberTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ContactNumberTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(ContactNumberTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 190, 40));
+        AddStudentPanel.add(ContactNumberTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 180, 40));
 
         FirstQuarterGradeTextBox.setForeground(new java.awt.Color(0, 0, 0));
         FirstQuarterGradeTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -706,19 +719,31 @@ public class MainForm extends javax.swing.JFrame {
 
         FirstQuarterAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         FirstQuarterAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(FirstQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 60, 40));
+        AddStudentPanel.add(FirstQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 60, 40));
 
         SecondQuarterAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         SecondQuarterAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(SecondQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 60, 40));
+        AddStudentPanel.add(SecondQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 60, 40));
 
         ThirdQuarterAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         ThirdQuarterAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(ThirdQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 60, 40));
+        AddStudentPanel.add(ThirdQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 60, 40));
 
         FourthQuarterAbsentTextBox.setForeground(new java.awt.Color(0, 0, 0));
         FourthQuarterAbsentTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        AddStudentPanel.add(FourthQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 60, 40));
+        AddStudentPanel.add(FourthQuarterAbsentTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 60, 40));
+
+        SchoolYearTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        SchoolYearTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(SchoolYearTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 110, 40));
+
+        GuardianNameTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        GuardianNameTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(GuardianNameTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 240, 40));
+
+        GuardianContactInformationTextBox.setForeground(new java.awt.Color(0, 0, 0));
+        GuardianContactInformationTextBox.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        AddStudentPanel.add(GuardianContactInformationTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 240, 40));
 
         StudentInfoBgHolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/StudentInfoBackground.jpg"))); // NOI18N
         AddStudentPanel.add(StudentInfoBgHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
@@ -740,6 +765,10 @@ public class MainForm extends javax.swing.JFrame {
         ClassInstructorHolder.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         ViewClassInformationPanel.add(ClassInstructorHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 300, 40));
 
+        ClassScheduleHolder.setForeground(new java.awt.Color(0, 0, 0));
+        ClassScheduleHolder.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        ViewClassInformationPanel.add(ClassScheduleHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 300, 40));
+
         SaveClassInfoChangeButton.setForeground(new java.awt.Color(255, 255, 255));
         SaveClassInfoChangeButton.setText("Save");
         SaveClassInfoChangeButton.setBorderColor(new java.awt.Color(0, 0, 0));
@@ -754,7 +783,7 @@ public class MainForm extends javax.swing.JFrame {
                 SaveClassInfoChangeButtonActionPerformed(evt);
             }
         });
-        ViewClassInformationPanel.add(SaveClassInfoChangeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 460, 130, 40));
+        ViewClassInformationPanel.add(SaveClassInfoChangeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 130, 40));
 
         EditClassInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         EditClassInfoButton.setText("Edit");
@@ -770,7 +799,7 @@ public class MainForm extends javax.swing.JFrame {
                 EditClassInfoButtonActionPerformed(evt);
             }
         });
-        ViewClassInformationPanel.add(EditClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 130, 40));
+        ViewClassInformationPanel.add(EditClassInfoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, 130, 40));
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -787,13 +816,18 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Class Instructor:");
-        ViewClassInformationPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 140, 40));
+        jLabel22.setText("Class Schedule:");
+        ViewClassInformationPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 140, 40));
 
         jLabel23.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Class name:");
         ViewClassInformationPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 110, 40));
+
+        jLabel28.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel28.setText("Class Instructor:");
+        ViewClassInformationPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 140, 40));
 
         ViewClassInfoBgHolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/GEM-logo-Only-600sq-2019.png"))); // NOI18N
         ViewClassInformationPanel.add(ViewClassInfoBgHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 610, 600));
@@ -837,7 +871,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void SaveClassInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveClassInfoButtonActionPerformed
         //checking if textbox has texts in it
-        if(ClassNameTextBox.getText().isEmpty()|| ClassCodeTextBox.getText().isEmpty() || ClassInstructorTextBox.getText().isEmpty())
+        if(ClassNameTextBox.getText().isEmpty()|| ClassCodeTextBox.getText().isEmpty() || ClassInstructorTextBox.getText().isEmpty() || ClassScheduleTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Kindly enter all necessary fields!");
         }
@@ -850,6 +884,7 @@ public class MainForm extends javax.swing.JFrame {
             String classCode = ClassCodeTextBox.getText();                                      //getting class code for the name of the file
             String className = ClassNameTextBox.getText();
             String classInstructor = ClassInstructorTextBox.getText();
+            String classSched = ClassScheduleTextBox.getText();
             
             String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;                     //concatinating home dirctory with the name Database
             String filePath = databaseDir + File.separator + "\\" + classCode +".txt";  //making a string filepath for the file
@@ -890,7 +925,7 @@ public class MainForm extends javax.swing.JFrame {
                     try
                     {
                         BufferedWriter writer = new BufferedWriter(new FileWriter(file1));
-                        writer.write(classCode  + "\n" + className + "\n" + classInstructor);
+                        writer.write(classCode  + "\n" + className + "\n" + classInstructor + "\n" + classSched + "\n");
                         writer.close();
                     }
                     catch(IOException e)
@@ -908,6 +943,7 @@ public class MainForm extends javax.swing.JFrame {
                     ClassNameTextBox.setText("");
                     ClassCodeTextBox.setText("");
                     ClassInstructorTextBox.setText("");
+                    ClassScheduleTextBox.setText("");
                     
                     ListOfFile.clear();
                     ListOfFile = getListOfFiles();
@@ -945,7 +981,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_AddStudentButtonActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentMInitialTextBox.getText().isEmpty() || IdNumberTextBox.getText().isEmpty() || GenderTextBox.getText().isEmpty())
+        if(StudentFNameTextBox.getText().isEmpty() || StudentLNameTextBox.getText().isEmpty() || StudentMInitialTextBox.getText().isEmpty() || IdNumberTextBox.getText().isEmpty() || GenderTextBox.getText().isEmpty() || SchoolYearTextBox.getText().isEmpty() || GuardianNameTextBox.getText().isEmpty() || GuardianContactInformationTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all necessarry fields!");
         }
@@ -960,6 +996,9 @@ public class MainForm extends javax.swing.JFrame {
             String LName = StudentLNameTextBox.getText();
             String MInitial = StudentMInitialTextBox.getText();
             String Gender = GenderTextBox.getText();
+            String SchoolYear = SchoolYearTextBox.getText();
+            String GuardianName = GuardianNameTextBox.getText();
+            String GuardianContactNumber = GuardianContactInformationTextBox.getText();
             
             double FirstQuarterGrade = 0.0;
             double SecondQuarterGrade = 0.0;
@@ -1100,7 +1139,11 @@ public class MainForm extends javax.swing.JFrame {
                     FirstQuarterAbsent, 
                     SecondQuarterAbsent, 
                     ThirdQuarterAbsent, 
-                    FourthQuarterAbsent});
+                    FourthQuarterAbsent,
+                    SchoolYear,
+                    GuardianName,
+                    GuardianContactNumber
+                });
                 
                 StudentFNameTextBox.setText("");
                 StudentLNameTextBox.setText("");
@@ -1116,6 +1159,9 @@ public class MainForm extends javax.swing.JFrame {
                 SecondQuarterAbsentTextBox.setText("");
                 ThirdQuarterAbsentTextBox.setText("");
                 FourthQuarterAbsentTextBox.setText("");
+                SchoolYearTextBox.setText("");
+                GuardianNameTextBox.setText("");
+                GuardianContactInformationTextBox.setText("");
                 
                 IDNumber = null;
                 FName = null;
@@ -1145,6 +1191,10 @@ public class MainForm extends javax.swing.JFrame {
                 isSecondQuarterAbsentValid = true;
                 isThirdQuarterAbsentValid = true;
                 isFourthQuarterAbsentValid = true;
+                
+                SchoolYear = null;
+                GuardianName = null;
+                GuardianContactNumber = null;
 
                 
                 hasSaved = false;
@@ -1236,6 +1286,7 @@ public class MainForm extends javax.swing.JFrame {
                         file.delete();
                         file1.delete();
                         file2.delete();
+                        clearTable();
                         
                         HeaderLabel.setText("");
                         ListPanel.remove(button);
@@ -1278,6 +1329,7 @@ public class MainForm extends javax.swing.JFrame {
             String classInstructor = null;
             String className = null;
             String classCode = HeaderLabel.getText();
+            String classSchedule = null;
             
             String databaseDir = homeDir + File.separator + "ClassRecordDatabaseOf" + Foldername;
             String classDatabaseDir = databaseDir + File.separator + "\\" + classCode + "Information";
@@ -1292,6 +1344,7 @@ public class MainForm extends javax.swing.JFrame {
                     classCode = reader.readLine();
                     className = reader.readLine();
                     classInstructor = reader.readLine();
+                    classSchedule = reader.readLine();
                 }while((str = reader.readLine()) != null);
                 reader.close();
             }
@@ -1303,10 +1356,12 @@ public class MainForm extends javax.swing.JFrame {
             ClassCodeHolder.setText(classCode);
             ClassNameHolder.setText(className);
             ClassInstructorHolder.setText(classInstructor);
+            ClassScheduleHolder.setText(classSchedule);
             
             ClassCodeHolder.setEditable(false);
             ClassNameHolder.setEditable(false);
             ClassInstructorHolder.setEditable(false);
+            ClassScheduleHolder.setEditable(false);
         }
     }//GEN-LAST:event_ViewClassInformationButtonActionPerformed
 
@@ -1315,7 +1370,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_SecondQuarterGradeTextBoxActionPerformed
 
     private void SaveClassInfoChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveClassInfoChangeButtonActionPerformed
-         if(ClassCodeHolder.getText().isEmpty() || ClassNameHolder.getText().isEmpty() || ClassInstructorHolder.getText().isEmpty())
+         if(ClassCodeHolder.getText().isEmpty() || ClassNameHolder.getText().isEmpty() || ClassInstructorHolder.getText().isEmpty() ||  ClassScheduleHolder.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all fields");
         }
@@ -1373,7 +1428,7 @@ public class MainForm extends javax.swing.JFrame {
             try
             {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(actualFileContainingClassInfo));
-                writer.write(ClassCodeHolder.getText() + "\n" + ClassNameHolder.getText() + "\n" + ClassInstructorHolder.getText());
+                writer.write(ClassCodeHolder.getText() + "\n" + ClassNameHolder.getText() + "\n" + ClassInstructorHolder.getText() + ClassScheduleHolder.getText() + "\n");
                 writer.close();
                 JOptionPane.showMessageDialog(null, "Edited class information successfully!");
             }
@@ -1386,6 +1441,7 @@ public class MainForm extends javax.swing.JFrame {
             ClassCodeHolder.setText("");
             ClassNameHolder.setText("");
             ClassInstructorHolder.setText("");
+            ClassScheduleHolder.setText("");
             
             Parent.removeAll();
             Parent.add(HomePanel);
@@ -1398,6 +1454,7 @@ public class MainForm extends javax.swing.JFrame {
         ClassCodeHolder.setEditable(true);
         ClassNameHolder.setEditable(true);
         ClassInstructorHolder.setEditable(true);
+        ClassScheduleHolder.setEditable(true);
     }//GEN-LAST:event_EditClassInfoButtonActionPerformed
 
     private void SearchTextBoxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchTextBoxKeyReleased
@@ -1476,6 +1533,9 @@ public class MainForm extends javax.swing.JFrame {
         int SecondQuarterAbsent = 0;
         int ThirdQuarterAbsent = 0;
         int FourthQuarterAbsent = 0;
+        String SchoolYear = null;
+        String GuardianName = null;
+        String GuardianContactNumber = null;
         
         try
         {
@@ -1548,6 +1608,22 @@ public class MainForm extends javax.swing.JFrame {
                             ThirdQuarterAbsent = Integer.valueOf(parts);
                             ctr++;
                         }
+                        case 14 ->{
+                            FourthQuarterAbsent = Integer.valueOf(parts);
+                            ctr++;
+                        }
+                        case 15 ->{
+                            SchoolYear = parts;
+                            ctr++;
+                        }
+                        case 16 ->{
+                            GuardianName = parts;
+                            ctr++;
+                        }
+                        case 17 ->{
+                            GuardianContactNumber = parts;
+                            ctr++;
+                        }
                         default -> {
                         }
                     }
@@ -1555,7 +1631,7 @@ public class MainForm extends javax.swing.JFrame {
                     endIndex  = line.indexOf(demarcation, startIndex);
                 }
                 String parts = line.substring(startIndex);
-                FourthQuarterAbsent = Integer.valueOf(parts);
+                GuardianContactNumber = parts;
                 Student s1 = new Student(
                         IDNumber, 
                         LName, 
@@ -1570,7 +1646,10 @@ public class MainForm extends javax.swing.JFrame {
                         FirstQuarterAbsent,
                         SecondQuarterAbsent,
                         ThirdQuarterAbsent,
-                        FourthQuarterAbsent
+                        FourthQuarterAbsent,
+                        SchoolYear,
+                        GuardianName,
+                        GuardianContactNumber
                 );
                 stud.add(s1);
             }
@@ -1610,7 +1689,10 @@ public class MainForm extends javax.swing.JFrame {
                         studs.getFirstQuarterAbsent() + "," +
                         studs.getSecondQuarterAbsent() + "," +
                         studs.getThirdQuarterAbsent() + "," +
-                        studs.getFourthQuarterAbsent() + "\n"
+                        studs.getFourthQuarterAbsent() + "," +
+                        studs.getSchoolYear() + "," +
+                        studs.getGuardianName() + "," +
+                        studs.getGuardianContactNumber() + "\n"
                 );
             }
             input.flush();
@@ -1643,7 +1725,7 @@ public class MainForm extends javax.swing.JFrame {
     private void populateTable(ArrayList <Student> stud)
     {
         DefaultTableModel model = (DefaultTableModel) StudentTable.getModel();
-        Object rowData[] = new Object[16];
+        Object rowData[] = new Object[19];
         int count = 1;
         for(int i  = 0 ; i < stud.size(); i++)
         {
@@ -1663,6 +1745,9 @@ public class MainForm extends javax.swing.JFrame {
             rowData[13] = stud.get(i).getSecondQuarterAbsent();
             rowData[14] = stud.get(i).getThirdQuarterAbsent();
             rowData[15] = stud.get(i).getFourthQuarterAbsent();
+            rowData[16] = stud.get(i).getSchoolYear();
+            rowData[17] = stud.get(i).getGuardianName();
+            rowData[18] = stud.get(i).getGuardianContactNumber();
             model.addRow(rowData);
             count++;
         }
@@ -1759,6 +1844,9 @@ public class MainForm extends javax.swing.JFrame {
         int SecondQuarterAbsent = 0;
         int ThirdQuarterAbsent = 0;
         int FourthQuarterAbsent = 0;
+        String SchoolYear = null;
+        String GuardianName = null;
+        String GuardianContactNumber = null;
         
         
         for(int i = 0; i < rowCount; i++)
@@ -1798,6 +1886,10 @@ public class MainForm extends javax.swing.JFrame {
                 String fourthQuarterAbsent = String.valueOf(model.getValueAt(i, 15));
                 FourthQuarterAbsent = Integer.valueOf(fourthQuarterAbsent);
                 
+                SchoolYear = String.valueOf(model.getValueAt(i, 16));
+                GuardianName = String.valueOf(model.getValueAt(i, 17));
+                GuardianContactNumber = String.valueOf(model.getValueAt(i, 18));
+                
                 Student s = new Student(
                         IDNumber, 
                         LName, 
@@ -1812,7 +1904,11 @@ public class MainForm extends javax.swing.JFrame {
                         FirstQuarterAbsent,
                         SecondQuarterAbsent,
                         ThirdQuarterAbsent,
-                        FourthQuarterAbsent);
+                        FourthQuarterAbsent,
+                        SchoolYear,
+                        GuardianName,
+                        GuardianContactNumber
+                );
                 students.add(s);
             }
         }    
@@ -1860,6 +1956,8 @@ public class MainForm extends javax.swing.JFrame {
     private pkgclass.record.FTextField ClassInstructorTextBox;
     private pkgclass.record.FTextField ClassNameHolder;
     private pkgclass.record.FTextField ClassNameTextBox;
+    private pkgclass.record.FTextField ClassScheduleHolder;
+    private pkgclass.record.FTextField ClassScheduleTextBox;
     private pkgclass.record.FTextField ContactNumberTextBox;
     private pkgclass.record.MyButton DeleteClassButton;
     private pkgclass.record.MyButton DeleteStudentButton;
@@ -1870,6 +1968,8 @@ public class MainForm extends javax.swing.JFrame {
     private pkgclass.record.FTextField FourthQuarterAbsentTextBox;
     private pkgclass.record.FTextField FourthQuarterGradeTextBox;
     private pkgclass.record.FTextField GenderTextBox;
+    private pkgclass.record.FTextField GuardianContactInformationTextBox;
+    private pkgclass.record.FTextField GuardianNameTextBox;
     private javax.swing.JLabel HeaderLabel;
     private javax.swing.JPanel HeaderPanel;
     private javax.swing.JPanel HomePanel;
@@ -1880,6 +1980,7 @@ public class MainForm extends javax.swing.JFrame {
     private pkgclass.record.MyButton SaveClassInfoButton;
     private pkgclass.record.MyButton SaveClassInfoChangeButton;
     private pkgclass.record.MyButton SaveStudInfoButton;
+    private pkgclass.record.FTextField SchoolYearTextBox;
     private javax.swing.JScrollPane ScrollPane;
     private pkgclass.record.SearchText SearchTextBox;
     private pkgclass.record.FTextField SecondQuarterAbsentTextBox;
@@ -1919,17 +2020,18 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
