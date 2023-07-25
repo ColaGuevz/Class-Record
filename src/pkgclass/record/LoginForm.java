@@ -12,6 +12,11 @@ public class LoginForm extends javax.swing.JFrame
     public LoginForm() 
     {
         initComponents();
+        PasswordTextBox.setEchoChar('*');
+        PasswordTextBox1.setEchoChar('*');
+        RecoveryKeyTextBox.setEchoChar('*');
+        RecoveryKeyTextBox1.setEchoChar('*');
+        NewPassword.setEchoChar('*');
     }
 
     @SuppressWarnings("unchecked")
@@ -41,6 +46,7 @@ public class LoginForm extends javax.swing.JFrame
         CreateAccountButton = new pkgclass.record.MyButton();
         ForgotPasswordButton = new javax.swing.JButton();
         PasswordTextBox = new pkgclass.record.PasswordTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         CreateAccountPanel = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -57,6 +63,8 @@ public class LoginForm extends javax.swing.JFrame
         CreateAccountButton1 = new pkgclass.record.MyButton();
         PasswordTextBox1 = new pkgclass.record.PasswordTextField();
         RecoveryKeyTextBox = new pkgclass.record.PasswordTextField();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
         jLabel32 = new javax.swing.JLabel();
         RecoveryPanel = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -72,9 +80,11 @@ public class LoginForm extends javax.swing.JFrame
         RecoverButton = new pkgclass.record.MyButton();
         BackToLogin = new javax.swing.JButton();
         NewPassword = new pkgclass.record.PasswordTextField();
+        jCheckBox4 = new javax.swing.JCheckBox();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jCheckBox5 = new javax.swing.JCheckBox();
 
         jButton2.setText("jButton2");
 
@@ -204,6 +214,17 @@ public class LoginForm extends javax.swing.JFrame
         PasswordTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         LoginPanel.add(PasswordTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 250, 40));
 
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox1.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox1.setText("Show password");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        LoginPanel.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, 30));
+
         ParentPanelOfSidePanel.add(LoginPanel, "card2");
 
         CreateAccountPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -286,6 +307,28 @@ public class LoginForm extends javax.swing.JFrame
         RecoveryKeyTextBox.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         CreateAccountPanel.add(RecoveryKeyTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 250, 40));
 
+        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox2.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jCheckBox2.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox2.setText("Show password");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        CreateAccountPanel.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, 20));
+
+        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox3.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jCheckBox3.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox3.setText("Show key");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        CreateAccountPanel.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, 20));
+
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
         CreateAccountPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
 
@@ -345,7 +388,7 @@ public class LoginForm extends javax.swing.JFrame
                 RecoverButtonActionPerformed(evt);
             }
         });
-        RecoveryPanel.add(RecoverButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 550, -1, 40));
+        RecoveryPanel.add(RecoverButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 560, -1, 40));
 
         BackToLogin.setBackground(new java.awt.Color(255, 255, 255));
         BackToLogin.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
@@ -357,11 +400,22 @@ public class LoginForm extends javax.swing.JFrame
                 BackToLoginActionPerformed(evt);
             }
         });
-        RecoveryPanel.add(BackToLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 100, 30));
+        RecoveryPanel.add(BackToLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 600, 100, 30));
 
         NewPassword.setForeground(new java.awt.Color(0, 0, 0));
         NewPassword.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
         RecoveryPanel.add(NewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 250, 40));
+
+        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox4.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jCheckBox4.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox4.setText("Show password");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+        RecoveryPanel.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, -1, 20));
 
         jLabel30.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
@@ -373,6 +427,17 @@ public class LoginForm extends javax.swing.JFrame
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkgclass/record/image/2. 67fbeadd2221ba3294bffe2c5d1ac5cd.png"))); // NOI18N
         RecoveryPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 100, 100));
+
+        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox5.setFont(new java.awt.Font("Rockwell", 0, 12)); // NOI18N
+        jCheckBox5.setForeground(new java.awt.Color(0, 0, 0));
+        jCheckBox5.setText("Show key");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        RecoveryPanel.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, -1, 20));
 
         ParentPanelOfSidePanel.add(RecoveryPanel, "card4");
 
@@ -589,6 +654,61 @@ public class LoginForm extends javax.swing.JFrame
         JOptionPane.showMessageDialog(null, "Email Address: ryanbuaquina@gmail.com");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(jCheckBox1.isSelected())
+        {
+            PasswordTextBox.setEchoChar((char)0);
+        }
+        else
+        {
+            PasswordTextBox.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        if(jCheckBox2.isSelected())
+        {
+            PasswordTextBox1.setEchoChar((char)0);
+        }
+        else
+        {
+            PasswordTextBox1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        if(jCheckBox3.isSelected())
+        {
+            RecoveryKeyTextBox.setEchoChar((char)0);
+        }
+        else
+        {
+            RecoveryKeyTextBox.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        if(jCheckBox4.isSelected())
+        {
+            RecoveryKeyTextBox1.setEchoChar((char)0);
+        }
+        else
+        {
+            RecoveryKeyTextBox1.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+       if(jCheckBox5.isSelected())
+        {
+            NewPassword.setEchoChar((char)0);
+        }
+        else
+        {
+            NewPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -711,6 +831,11 @@ public class LoginForm extends javax.swing.JFrame
     private pkgclass.record.FTextField UsernameTextBox2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
