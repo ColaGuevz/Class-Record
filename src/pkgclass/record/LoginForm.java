@@ -3,6 +3,7 @@ package pkgclass.record;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class LoginForm extends javax.swing.JFrame 
@@ -450,66 +451,97 @@ public class LoginForm extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        if(UsernameTextBox.getText().isEmpty() || PasswordTextBox.getText().isEmpty())
+         if(UsernameTextBox.getText().isEmpty() || PasswordTextBox.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null,"Please enter all needed fields!");
+            //CONDITION KUNG EMPTY ANG MGA TEXTBOX SA LOGIN PAGE
         }
         else
         {
+            //VARIABLE CONTAINER NA SUDLAN SA MGA TEXT NA MABUTANG SA MGA TEXTBOXES SA LOGIN PAGE
             String usernameFromFile = null;
             String passwordFromFile = null;
             String recovery = null;
             
+            //DECLARATION SA MGA FILEPATH PREPARATION NIA NI SA FILE PROCESSING
             String databaseDir = homeDir + File.separator + "ClassRecordUserInfo";
             String filePath = databaseDir + File.separator + "\\" + UsernameTextBox.getText() +".txt";
             File file = new File(filePath);
             
-            if(!file.exists())
+            if(!file.exists())//SELF EXPLANATORY RA NI, TO CHECK IF ANG USERNAME KAY NI EXISTS OR WALA
             {
                 JOptionPane.showMessageDialog(null,"Username does not exists!");
             }
             else
             {
-                String str;
-                try
+                String OpenedAccountDatabase = homeDir + File.separator + "ClassRecordOpenedAccounts";
+                File FolderOfOpenedAccount = new File(OpenedAccountDatabase);
+                if(!FolderOfOpenedAccount.exists())
                 {
-                    BufferedReader br = new BufferedReader(new FileReader(file));
-                    do
-                    {
-                        usernameFromFile = br.readLine();
-                        passwordFromFile = br.readLine();
-                        recovery = br.readLine();
-                    }while((str = br.readLine()) != null);
-                    br.close();
+                    FolderOfOpenedAccount.mkdirs();
                 }
-                catch(IOException e)
-                {
-                    e.getStackTrace();
-                }
-                String username = hash(UsernameTextBox.getText());
-                String password = hash(PasswordTextBox.getText());
                 
-                if(usernameFromFile.equals(username) && passwordFromFile.equals(password))
+                String TextFileOfOpenedAccount = OpenedAccountDatabase + File.separator + UsernameTextBox.getText() +".txt";
+                File OpenedAccount = new File(TextFileOfOpenedAccount);
+                if(OpenedAccount.exists())
                 {
-                    new MainForm(UsernameTextBox.getText()).setVisible(true);
-                    setVisible(false);
-                    
-                    UsernameTextBox.setText("");
-                    PasswordTextBox.setText("");
-                    
-                    recovery = null;
-                    usernameFromFile = null;
-                    passwordFromFile = null;
+                    JOptionPane.showMessageDialog(null, "This account is currently open!");
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Password did not match!");
+                    String str;
+                    try
+                    {
+                        BufferedReader br = new BufferedReader(new FileReader(file));//mao ni file reader sa java
+                        do
+                        {
+                            usernameFromFile = br.readLine();//basa sa file
+                            passwordFromFile = br.readLine();//basa sa file
+                            recovery = br.readLine();
+                        }while((str = br.readLine()) != null);//iya basahon ang file hangtud na makaabot siyag value na null or ang end sa file
+                        br.close();
+                    }
+                    catch(IOException e)
+                    {
+                        e.getStackTrace();
+                    }
+                    String username = hash(UsernameTextBox.getText());//hashing sa input nga username
+                    String password = hash(PasswordTextBox.getText());//hashing sa input nga password
+
+                    //diri na i compare ang gibasa na username ug password sa file ug ang username ug password nga gikan sa textbox sa login page, kung sakto gani proceed na siya sa MainForm.
+                    if(usernameFromFile.equals(username) && passwordFromFile.equals(password))
+                    {
+                        new MainForm(UsernameTextBox.getText()).setVisible(true);//naa ni parameter ang MainForm which is ang username para muilis adto sa main page ang text nga naa sa Welcome, katong  sa upper left corner sa main page.
+                        setVisible(false);//para mawala ang login page.
+
+                        UsernameTextBox.setText("");//i clear ang mga textboxes
+                        PasswordTextBox.setText("");
+                        
+                        try
+                        {
+                            BufferedWriter writer = new BufferedWriter(new FileWriter(OpenedAccount));
+                            writer.write("This account is opened!");
+                            writer.close();
+                        }
+                        catch(IOException e)
+                        {
+                            e.getStackTrace();
+                        }
+                        recovery = null;//i clear ang mga value sa variable
+                        usernameFromFile = null;
+                        passwordFromFile = null;
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"Password did not match!");//kung di mag match ang mga password
+                    }
                 }
             }
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void CreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButtonActionPerformed
+        //sa create account ni sa login panel para muilis siya ug page
         ParentPanelOfSidePanel.removeAll();
         ParentPanelOfSidePanel.add(CreateAccountPanel);
         ParentPanelOfSidePanel.repaint();
@@ -517,6 +549,7 @@ public class LoginForm extends javax.swing.JFrame
     }//GEN-LAST:event_CreateAccountButtonActionPerformed
 
     private void ForgotPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotPasswordButtonActionPerformed
+        //sa forgot password ni sa login panel para muilis siya ug page
         ParentPanelOfSidePanel.removeAll();
         ParentPanelOfSidePanel.add(RecoveryPanel);
         ParentPanelOfSidePanel.repaint();
@@ -524,8 +557,10 @@ public class LoginForm extends javax.swing.JFrame
     }//GEN-LAST:event_ForgotPasswordButtonActionPerformed
 
     private void CreateAccountButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateAccountButton1ActionPerformed
+        //kani sa create account ni mismo katong mu create na jud kag account
         if(UsernameTextBox1.getText().isEmpty() || PasswordTextBox1.getText().isEmpty() || RecoveryKeyTextBox.getText().isEmpty())
         {
+            //same ra ni sa login, pang check if na fill upan tanan texbox
             JOptionPane.showMessageDialog(null, "Please enter all needed fields!");
         }
         else
