@@ -209,6 +209,11 @@ public class MainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TopParent.setBackground(new java.awt.Color(0, 0, 0));
@@ -1488,6 +1493,13 @@ public class MainForm extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_ExportButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        String OpenedAccountDatabase = homeDir + File.separator + "ClassRecordOpenedAccounts";
+        String TextFileOfOpenedAccount = OpenedAccountDatabase + File.separator + TeachersNameLabel.getText() +".txt";
+        File OpenedAccount = new File(TextFileOfOpenedAccount);
+        OpenedAccount.delete();
+    }//GEN-LAST:event_formWindowClosing
 
     private ArrayList <String> getListOfFiles()
     {
