@@ -318,7 +318,7 @@ public class MainForm extends javax.swing.JFrame {
                 DeleteClassButtonActionPerformed(evt);
             }
         });
-        HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 140, 40));
+        HomePanel.add(DeleteClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 140, 40));
 
         DeleteStudentButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteStudentButton.setText("Remove Student");
