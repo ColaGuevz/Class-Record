@@ -29,14 +29,6 @@ The primary goals of this software include:
 - **IT Staff**: Install and maintain the software.
 - **Education Consultants**: Enhance record-keeping processes.
 
-## Engineering Principles Applied
-- **User-Centered Design**: Intuitive and modern GUI for ease of use.
-- **Data Validation & Error Handling**: Constraints and error handling for data accuracy.
-- **Scalability & Performance**: Java-based file handling for efficient storage and retrieval.
-- **Security & Privacy**: User authentication and role-based access control.
-- **System Integration**: Compatible with existing DepEd databases.
-- **Maintenance & Documentation**: Regular updates and comprehensive documentation.
-
 ## Flowchart Overview
 ```plaintext
 Start → User Login → Validate Credentials → Display Main Menu
